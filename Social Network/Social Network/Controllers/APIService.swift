@@ -15,8 +15,6 @@ final class APIService {
     let userID = Session.shared.userID
     let version = "5.138"
     
-    
-    
     func getGroup (completion: @escaping ([Group]) -> Void ){
         let method = "/groups.get"
         
@@ -42,12 +40,9 @@ final class APIService {
             } catch {
                 print(error)
             }
-        
     }
     }
 
-    
-    
     func getFriend (completion: @escaping ([Item]) -> ()){
         let method = "/friends.get"
         
@@ -64,13 +59,11 @@ final class APIService {
         
         AF.request(url, method: .get, parameters: parameters).responseData {  response in
             
-            
             guard let data = response.data else { return}
             do {
             let friendResponder = try JSONDecoder().decode(Friends.self, from: data)
             let friends = friendResponder.response.items
             print(data.prettyJSON as Any)
-
             DispatchQueue.main.async {
                 completion(friends)
             }
@@ -98,18 +91,13 @@ final class APIService {
             let photoResponder = try JSONDecoder().decode(Photos.self, from: data)
             let photo = photoResponder.response.items
             print(data.prettyJSON as Any)
-
             DispatchQueue.main.async {
                 completion(photo)
             }
             } catch {
                 print(error)
         }
-        
         }
         
-
-
-    
 }
 }
