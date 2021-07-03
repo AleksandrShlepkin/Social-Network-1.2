@@ -52,6 +52,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = FriendTableView.dequeueReusableCell(withIdentifier: "FriendTableView", for: indexPath)
         let user = friends[indexPath.row]
         cell.textLabel?.text = "\(user.firstName) \(user.lastName)"
+        cell.imageView?.sd_setImage(with: URL(string: user.photo100), placeholderImage: UIImage())
         return cell
     }
     

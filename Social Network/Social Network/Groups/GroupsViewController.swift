@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class GroupsViewController: UIViewController {
     
@@ -49,6 +50,7 @@ extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = GroupsTableView.dequeueReusableCell(withIdentifier: "GroupsTableView", for: indexPath)
         let userGroups = groups[indexPath.row]
         cell.textLabel?.text = "\(userGroups.name) \(userGroups.screenName)"
+        cell.imageView?.sd_setImage(with: URL(string: userGroups.photo50), placeholderImage: UIImage())
         return cell
     }
     
