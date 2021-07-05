@@ -38,6 +38,14 @@ class GroupsViewController: UIViewController {
             self.GroupsTableView.reloadData()
             
         }
+        do {
+            self.realm.beginWrite()
+            self.realm.add(groups)
+            try self.realm.commitWrite()
+            print(realm.configuration.fileURL as Any)
+        } catch {
+            print(error)
+        }
     }
 }
 extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {

@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
             self.realm.beginWrite()
             self.realm.add(profileFriends!)
             try self.realm.commitWrite()
-            print(realm.configuration.fileURL)
+            print(realm.configuration.fileURL as Any)
         } catch {
             print(error)
         }
