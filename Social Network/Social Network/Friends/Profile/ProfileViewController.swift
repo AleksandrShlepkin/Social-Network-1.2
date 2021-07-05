@@ -7,8 +7,12 @@
 
 import UIKit
 import SDWebImage
+import RealmSwift
 
 class ProfileViewController: UIViewController {
+    
+    let config = Realm.Configuration(schemaVersion: 1)
+    lazy var realm = try! Realm(configuration: config)
     
     @IBOutlet weak var nameProfile: UILabel!
     @IBOutlet weak var photoProfile: UIImageView!
@@ -18,6 +22,16 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        do {
+            self.realm.beginWrite()
+            self.realm.add(profileFriends!)
+            try self.realm.commitWrite()
+            print(realm.configuration.fileURL)
+        } catch {
+            print(error)
+        }
+        
+        
         nameProfile.text = " \( profileFriends?.firstName ?? "") \(profileFriends?.lastName ?? "")"
         photoProfile.sd_setImage(with: URL(string: profileFriends?.photo ?? ""), placeholderImage: UIImage())
         
