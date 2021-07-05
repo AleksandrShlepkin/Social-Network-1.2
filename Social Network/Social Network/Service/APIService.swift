@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import DynamicJSON
 
 final class APIService {
     
@@ -15,7 +16,7 @@ final class APIService {
     let userID = Session.shared.userID
     let version = "5.138"
     
-    func getGroup (completion: @escaping ([Group]) -> Void ){
+    func getGroup (completion: @escaping ([GroupsModel]) -> Void ){
         let method = "/groups.get"
         
         let param: Parameters =
@@ -30,20 +31,15 @@ final class APIService {
         
         AF.request(url, method: .get, parameters: param).responseData { (response) in
             guard let data = response.data else { return }
-            do {
-            let groupResponder = try JSONDecoder().decode(Groups.self, from: data)
-                let groups = groupResponder.response.items
+            print(data.prettyJSON as Any)
+            guard let items = JSON(data).response.items.array else { return }
+            let groups = items.map { GroupsModel(data: $0)}
             DispatchQueue.main.async {
                 completion(groups)
-            }
-            print(data.prettyJSON as Any)
-            } catch {
-                print(error)
-            }
-    }
+            }    }
     }
 
-    func getFriend (completion: @escaping ([Item]) -> ()){
+    func getFriend (completion: @escaping ([FriendsModel]) -> ()){
         let method = "/friends.get"
         
         let parameters: Parameters =
@@ -60,16 +56,12 @@ final class APIService {
         AF.request(url, method: .get, parameters: parameters).responseData {  response in
             
             guard let data = response.data else { return}
-            do {
-            let friendResponder = try JSONDecoder().decode(Friends.self, from: data)
-            let friends = friendResponder.response.items
             print(data.prettyJSON as Any)
+            guard let items = JSON(data).response.items.array else { return }
+            let friends = items.map { FriendsModel(data: $0) }
             DispatchQueue.main.async {
                 completion(friends)
             }
-            } catch {
-                print(error)
-        }
         }
     }
     
@@ -87,17 +79,15 @@ final class APIService {
         let url = baseURl + method
         AF.request(url, method: .get, parameters: param).responseData { response in
             guard let data = response.data else { return}
-            do {
-            let photoResponder = try JSONDecoder().decode(Photos.self, from: data)
-            let photo = photoResponder.response.items
             print(data.prettyJSON as Any)
+            guard let items = JSON(data).response.item.array else { return }
+            let groups = items.map { GroupsModel(data: $0)}
             DispatchQueue.main.async {
-                completion(photo)
+                completion([])
             }
-            } catch {
-                print(error)
+        
         }
-        }
+        
         
 }
 }

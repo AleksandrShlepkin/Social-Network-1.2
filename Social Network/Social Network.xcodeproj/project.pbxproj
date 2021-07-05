@@ -13,6 +13,9 @@
 		FA26C90D268A0C2F0028158A /* FriendStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26C90C268A0C2F0028158A /* FriendStruct.swift */; };
 		FA36E544268E14C7009EFBF2 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E543268E14C7009EFBF2 /* PhotoViewController.swift */; };
 		FA36E549268E19C0009EFBF2 /* PhotoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */; };
+		FA48FD4E269033C7007B1D37 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48FD4D269033C7007B1D37 /* ProfileViewController.swift */; };
+		FA48FD5326903440007B1D37 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48FD5226903440007B1D37 /* ProfileCollectionViewCell.swift */; };
+		FA48FD5E2693538B007B1D37 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48FD5D2693538B007B1D37 /* BaseModel.swift */; };
 		FA4B3E93268A2E2E0094DAFB /* GroupStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B3E92268A2E2E0094DAFB /* GroupStruct.swift */; };
 		FA50C532268DDE3000B3CC59 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */; };
 		FA565BFF2684A6ED000B4F96 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565BFE2684A6ED000B4F96 /* APIService.swift */; };
@@ -60,6 +63,9 @@
 		FA26C90C268A0C2F0028158A /* FriendStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendStruct.swift; sourceTree = "<group>"; };
 		FA36E543268E14C7009EFBF2 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStruct.swift; sourceTree = "<group>"; };
+		FA48FD4D269033C7007B1D37 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FA48FD5226903440007B1D37 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA48FD5D2693538B007B1D37 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		FA4B3E92268A2E2E0094DAFB /* GroupStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStruct.swift; sourceTree = "<group>"; };
 		FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		FA565BFE2684A6ED000B4F96 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 		FA1D1359268DD8B800A4571B /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				FA48FD4C269033A5007B1D37 /* Profile */,
 				FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */,
 				FA36E543268E14C7009EFBF2 /* PhotoViewController.swift */,
 				FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */,
@@ -154,25 +161,35 @@
 			path = Groups;
 			sourceTree = "<group>";
 		};
-		FA565C032684B1D7000B4F96 /* Service */ = {
+		FA48FD4C269033A5007B1D37 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				FA565C042684B22D000B4F96 /* Extention.swift */,
+				FA48FD4D269033C7007B1D37 /* ProfileViewController.swift */,
+				FA48FD5226903440007B1D37 /* ProfileCollectionViewCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FA565C032684B1D7000B4F96 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				FA26C90C268A0C2F0028158A /* FriendStruct.swift */,
 				FA4B3E92268A2E2E0094DAFB /* GroupStruct.swift */,
 				FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */,
+				FA48FD5D2693538B007B1D37 /* BaseModel.swift */,
 			);
-			path = Service;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		FADF64482684952E005DF975 /* Controllers */ = {
+		FADF64482684952E005DF975 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				FA565C042684B22D000B4F96 /* Extention.swift */,
 				FAF20A592683D01700209A3E /* ViewController.swift */,
 				FADF645426849600005DF975 /* Sessions.swift */,
 				FA565BFE2684A6ED000B4F96 /* APIService.swift */,
 			);
-			path = Controllers;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		FADF644C26849543005DF975 /* Resourse */ = {
@@ -224,8 +241,8 @@
 				FA1D135A268DD8CF00A4571B /* Groups */,
 				FA1D1359268DD8B800A4571B /* Friends */,
 				FADF6450268495E2005DF975 /* Delegate */,
-				FA565C032684B1D7000B4F96 /* Service */,
-				FADF64482684952E005DF975 /* Controllers */,
+				FA565C032684B1D7000B4F96 /* Model */,
+				FADF64482684952E005DF975 /* Service */,
 				FADF644C26849543005DF975 /* Resourse */,
 			);
 			path = "Social Network";
@@ -489,6 +506,7 @@
 			files = (
 				FA4B3E93268A2E2E0094DAFB /* GroupStruct.swift in Sources */,
 				FAF20A5A2683D01700209A3E /* ViewController.swift in Sources */,
+				FA48FD5326903440007B1D37 /* ProfileCollectionViewCell.swift in Sources */,
 				FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */,
 				FA26C90D268A0C2F0028158A /* FriendStruct.swift in Sources */,
 				FADF645526849600005DF975 /* Sessions.swift in Sources */,
@@ -497,8 +515,10 @@
 				FAF20A582683D01700209A3E /* SceneDelegate.swift in Sources */,
 				FA50C532268DDE3000B3CC59 /* FriendsViewController.swift in Sources */,
 				FA565BFF2684A6ED000B4F96 /* APIService.swift in Sources */,
+				FA48FD5E2693538B007B1D37 /* BaseModel.swift in Sources */,
 				FA36E549268E19C0009EFBF2 /* PhotoStruct.swift in Sources */,
 				FADFC566268E28B90045B7C6 /* PhotoCollectionViewCell.swift in Sources */,
+				FA48FD4E269033C7007B1D37 /* ProfileViewController.swift in Sources */,
 				FAF20A602683D01700209A3E /* Social_Network.xcdatamodeld in Sources */,
 				FA565C052684B22D000B4F96 /* Extention.swift in Sources */,
 			);

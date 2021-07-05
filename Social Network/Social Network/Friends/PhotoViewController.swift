@@ -18,7 +18,7 @@ class PhotoViewController: UIViewController {
         }
     }
     private let apiservice = APIService()
-    private var photos: [Item] = []
+    private var photos: [FriendsModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCollectionViewCell
         let photo = photos[indexPath.row]
-        cell.photoCell.sd_setImage(with: URL(string: photo.photo100), placeholderImage: UIImage())
+        cell.photoCell.sd_setImage(with: URL(string: photo.photo ?? ""), placeholderImage: UIImage())
         return cell
         
     }

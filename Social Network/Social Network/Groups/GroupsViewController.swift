@@ -7,8 +7,11 @@
 
 import UIKit
 import SDWebImage
+import RealmSwift
 
 class GroupsViewController: UIViewController {
+    let config = Realm.Configuration(schemaVersion: 1)
+    lazy var realm = try! Realm(configuration: config)
     
     @IBOutlet weak var GroupsTableView: UITableView!{
         didSet {
@@ -18,7 +21,7 @@ class GroupsViewController: UIViewController {
         }
     }
     private  var apiservice = APIService()
-    private var groups: [Group] = []
+    private var groups: [GroupsModel] = []
     
     
     override func viewDidLoad() {
@@ -35,10 +38,7 @@ class GroupsViewController: UIViewController {
             self.GroupsTableView.reloadData()
             
         }
-        
     }
-    
-    
 }
 extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -49,8 +49,8 @@ extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = GroupsTableView.dequeueReusableCell(withIdentifier: "GroupsTableView", for: indexPath)
         let userGroups = groups[indexPath.row]
-        cell.textLabel?.text = "\(userGroups.name) \(userGroups.screenName)"
-        cell.imageView?.sd_setImage(with: URL(string: userGroups.photo50), placeholderImage: UIImage())
+        cell.textLabel?.text = "\(userGroups.name ?? "")"
+        cell.imageView?.sd_setImage(with: URL(string: userGroups.photo ?? ""), placeholderImage: UIImage())
         return cell
     }
     
