@@ -19,17 +19,37 @@ class ProfileViewController: UIViewController {
     @IBOutlet var profileView: UIView!
     private var apiservice = APIService()
     var profileFriends: FriendsModel?
+    var profilePhoto: PhotoModel?
+    var realmService: RealmService?
+    var token: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            self.realm.beginWrite()
-            self.realm.add(profileFriends!)
-            try self.realm.commitWrite()
-            print(realm.configuration.fileURL as Any)
-        } catch {
-            print(error)
+        
+        
+
+        let friendProfile = realm.objects(FriendsModel.self)
+        self.token = friendProfile.observe{ (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial(let results):
+                print(results)
+            case let .update(results ,deletions, insertions, modifications ):
+                print(results, deletions, insertions, modifications)
+            case .error(let error):
+                print(error)
+            }
+
         }
+      let profile1 = realmService?.read()
+        print(realm.configuration.fileURL as Any)
+//        do {
+//            self.realm.beginWrite()
+//            self.realm.add(profileFriends!)
+//            try self.realm.commitWrite()
+//            print(realm.configuration.fileURL as Any)
+//        } catch {
+//            print(error)
+//        }
         
         
         nameProfile.text = " \( profileFriends?.firstName ?? "") \(profileFriends?.lastName ?? "")"

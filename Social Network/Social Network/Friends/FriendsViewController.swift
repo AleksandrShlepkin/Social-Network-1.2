@@ -11,13 +11,16 @@ import RealmSwift
 
 class FriendsViewController: UIViewController {
     
-    let config = Realm.Configuration(schemaVersion: 1)
-    lazy var realm = try! Realm(configuration: config)
+
     
     private var apiservice = APIService()
     var friends: [FriendsModel] = []
+    var user: RealmService?
+    var token: NotificationToken?
+    
     
     @IBOutlet weak var FriendTableView: UITableView! {
+        
         didSet {
             FriendTableView.delegate = self
             FriendTableView.dataSource = self
@@ -38,13 +41,21 @@ class FriendsViewController: UIViewController {
             guard let self = self else { return }
             self.FriendTableView.reloadData()
         }
-        do {
-            self.realm.beginWrite()
-            self.realm.add(friends)
-            try self.realm.commitWrite()
-            print(realm.configuration.fileURL as Any)
-        } catch {
-            print(error)
+        
+        let friend = user?.realm.objects(FriendsModel.self)
+        
+        user?.realm.add(friends)
+        user?.realm.beginWrite()
+        try? user?.realm.commitWrite()
+        self.token = friend?.observe{ (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial(let results):
+                print(results)
+            case let .update(results ,deletions, insertions, modifications):
+                print(results, deletions, insertions, modifications)
+            case .error(let error):
+                print(error)
+            }
         }
     }
 }

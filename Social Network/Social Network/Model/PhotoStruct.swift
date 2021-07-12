@@ -7,6 +7,21 @@
 
 import Foundation
 import RealmSwift
+import DynamicJSON
+
+
+class PhotoModel: BaseModel {
+    @objc dynamic var photoID: String?
+    @objc dynamic var photo100: String?
+    
+    convenience required init (data: JSON) {
+        self.init()
+        
+        self.photoID = data.id.string
+        self.photo100 = data.photo_100.string
+    }
+    
+}
 
 struct Photos: Codable {
     let response: ResponsePhoto
