@@ -21,11 +21,14 @@
 		FA565BFF2684A6ED000B4F96 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565BFE2684A6ED000B4F96 /* APIService.swift */; };
 		FA565C052684B22D000B4F96 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565C042684B22D000B4F96 /* Extention.swift */; };
 		FA712AF3268DED61004A7295 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA712AF2268DED61004A7295 /* GroupsViewController.swift */; };
+		FA993D4426A1C3C3009872E0 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */; };
+		FAA07B2D269EB4E00038031E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */; };
+		FAA07B7726A17E840038031E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA07B7626A17E840038031E /* LoginViewController.swift */; };
 		FADF645526849600005DF975 /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF645426849600005DF975 /* Sessions.swift */; };
 		FADFC566268E28B90045B7C6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */; };
 		FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A552683D01700209A3E /* AppDelegate.swift */; };
 		FAF20A582683D01700209A3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A572683D01700209A3E /* SceneDelegate.swift */; };
-		FAF20A5A2683D01700209A3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A592683D01700209A3E /* ViewController.swift */; };
+		FAF20A5A2683D01700209A3E /* APIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A592683D01700209A3E /* APIViewController.swift */; };
 		FAF20A5D2683D01700209A3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF20A5B2683D01700209A3E /* Main.storyboard */; };
 		FAF20A602683D01700209A3E /* Social_Network.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A5E2683D01700209A3E /* Social_Network.xcdatamodeld */; };
 		FAF20A622683D01A00209A3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF20A612683D01A00209A3E /* Assets.xcassets */; };
@@ -72,12 +75,15 @@
 		FA565C042684B22D000B4F96 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		FA5DF6E6295CC9E3434F0270 /* Pods-Social NetworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social NetworkTests.release.xcconfig"; path = "Target Support Files/Pods-Social NetworkTests/Pods-Social NetworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA712AF2268DED61004A7295 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAA07B7626A17E840038031E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FADF645426849600005DF975 /* Sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
 		FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAF20A522683D01700209A3E /* Social Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF20A552683D01700209A3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF20A572683D01700209A3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAF20A592683D01700209A3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAF20A592683D01700209A3E /* APIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIViewController.swift; sourceTree = "<group>"; };
 		FAF20A5C2683D01700209A3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAF20A5F2683D01700209A3E /* Social_Network.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Social_Network.xcdatamodel; sourceTree = "<group>"; };
 		FAF20A612683D01A00209A3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -185,9 +191,11 @@
 			isa = PBXGroup;
 			children = (
 				FA565C042684B22D000B4F96 /* Extention.swift */,
-				FAF20A592683D01700209A3E /* ViewController.swift */,
+				FAF20A592683D01700209A3E /* APIViewController.swift */,
 				FADF645426849600005DF975 /* Sessions.swift */,
 				FA565BFE2684A6ED000B4F96 /* APIService.swift */,
+				FAA07B7626A17E840038031E /* LoginViewController.swift */,
+				FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 				FAF20A662683D01A00209A3E /* Info.plist */,
 				FAF20A5E2683D01700209A3E /* Social_Network.xcdatamodeld */,
 				FAF20A5B2683D01700209A3E /* Main.storyboard */,
+				FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */,
 			);
 			path = Resourse;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF20A652683D01A00209A3E /* LaunchScreen.storyboard in Resources */,
+				FAA07B2D269EB4E00038031E /* GoogleService-Info.plist in Resources */,
 				FAF20A622683D01A00209A3E /* Assets.xcassets in Resources */,
 				FAF20A5D2683D01700209A3E /* Main.storyboard in Resources */,
 			);
@@ -504,8 +514,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA07B7726A17E840038031E /* LoginViewController.swift in Sources */,
 				FA4B3E93268A2E2E0094DAFB /* GroupStruct.swift in Sources */,
-				FAF20A5A2683D01700209A3E /* ViewController.swift in Sources */,
+				FA993D4426A1C3C3009872E0 /* RegistrationViewController.swift in Sources */,
+				FAF20A5A2683D01700209A3E /* APIViewController.swift in Sources */,
 				FA48FD5326903440007B1D37 /* ProfileCollectionViewCell.swift in Sources */,
 				FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */,
 				FA26C90D268A0C2F0028158A /* FriendStruct.swift in Sources */,

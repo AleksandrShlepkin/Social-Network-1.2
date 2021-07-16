@@ -11,7 +11,7 @@ import WebKit
 import SwiftKeychainWrapper
 
 
-class ViewController: UIViewController, WKNavigationDelegate {
+class APIViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var webView: WKWebView! {
         didSet{

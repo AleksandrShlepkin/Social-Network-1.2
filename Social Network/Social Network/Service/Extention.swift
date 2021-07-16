@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Firebase
+
 
 extension Data {
     var prettyJSON: NSString? {

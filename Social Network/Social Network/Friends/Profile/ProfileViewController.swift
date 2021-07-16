@@ -10,7 +10,7 @@ import SDWebImage
 import RealmSwift
 
 class ProfileViewController: UIViewController {
-    
+
     let config = Realm.Configuration(schemaVersion: 1)
     lazy var realm = try! Realm(configuration: config)
     
@@ -28,8 +28,8 @@ class ProfileViewController: UIViewController {
         
         
 
-        let friendProfile = realm.objects(FriendsModel.self)
-        self.token = friendProfile.observe{ (changes: RealmCollectionChange) in
+        let friendProfile = realmService?.realm.objects(FriendsModel.self)
+        self.token = friendProfile?.observe{ (changes: RealmCollectionChange) in
             switch changes {
             case .initial(let results):
                 print(results)
@@ -40,16 +40,16 @@ class ProfileViewController: UIViewController {
             }
 
         }
-      let profile1 = realmService?.read()
-        print(realm.configuration.fileURL as Any)
-//        do {
-//            self.realm.beginWrite()
-//            self.realm.add(profileFriends!)
-//            try self.realm.commitWrite()
-//            print(realm.configuration.fileURL as Any)
-//        } catch {
-//            print(error)
-//        }
+//        let profile1 = realmService?.read()
+//        print(realmService?.config.fileURL as Any)
+        do {
+            self.realm.beginWrite()
+            self.realm.add(profileFriends!)
+            try self.realm.commitWrite()
+            print(realm.configuration.fileURL as Any)
+        } catch {
+            print(error)
+        }
         
         
         nameProfile.text = " \( profileFriends?.firstName ?? "") \(profileFriends?.lastName ?? "")"

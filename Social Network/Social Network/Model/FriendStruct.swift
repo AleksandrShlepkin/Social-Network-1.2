@@ -43,6 +43,12 @@ class RealmService: RealmServiceProtocol {
     }
     func read() -> [FriendsModel] {
         let user = realm.objects(FriendsModel.self)
+        do {
+       try user.realm?.commitWrite()
+            print(realm.configuration.fileURL as Any)
+        } catch {
+            print(error)
+        }
         return Array(user)
     }
     func delete(user: FriendsModel){
