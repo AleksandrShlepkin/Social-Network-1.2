@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 class FriendsViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class FriendsViewController: UIViewController {
     var friends: [FriendsModel] = []
     var user: RealmService?
     var token: NotificationToken?
+    
     
     
     @IBOutlet weak var FriendTableView: UITableView! {

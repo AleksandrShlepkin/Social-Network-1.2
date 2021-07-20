@@ -15,16 +15,15 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var ReplyPassword: UITextField!
     @IBAction func registrationButton(_ sender: UIButton) {
         
-        guard  let email = YourEmailTextField.text, YourEmailTextField.hasText,
-               let password = PasswordTextField.text, PasswordTextField.hasText,
-               let replyPassword = ReplyPassword.text, ReplyPassword.hasText,
+            guard  let email = YourEmailTextField.text, YourEmailTextField.hasText,
+                   let password = PasswordTextField.text, PasswordTextField.hasText,
+                   let replyPassword = ReplyPassword.text, ReplyPassword.hasText,
                replyPassword == password else {
             self.showAlert(title: "Ошибка", text: "Пароли не совпадают")
             print("error")
             return
         }
-        
-        Auth.auth().createUser(withEmail: email, password: password) {[weak self ]authresult, error in
+                Auth.auth().createUser(withEmail: email, password: password) {[weak self ]authresult, error in
             if error != nil {
                 self?.showAlert(title: "Ошибка", text: "")
                 print("")
@@ -33,9 +32,11 @@ class RegistrationViewController: UIViewController {
                 self?.backHome()
             }
         }
-        self.registrationButton(sender)
+            self.registrationButton(sender)
         
     }
+    
+    
     @IBAction func cancelButton(_ sender: UIButton) {
         backHome()
     }
@@ -44,9 +45,10 @@ class RegistrationViewController: UIViewController {
 
     }
     func backHome() {
-        guard let vc = storyboard?.instantiateViewController(identifier: "LoginViewController") else { return }
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "APIViewController") else { return }
         guard let window = self.view.window else {return}
         window.rootViewController = vc
+    
     }
     
     

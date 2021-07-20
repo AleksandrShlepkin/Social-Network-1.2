@@ -8,9 +8,30 @@
 import UIKit
 import SDWebImage
 import RealmSwift
+import Firebase
 
 class ProfileViewController: UIViewController {
+    
+    
+    @IBOutlet weak var photoCollection: UICollectionView!
+    
+    let ref = Database.database().reference(withPath: "Friends")
 
+    @IBAction func addFriend(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Добавить в друзья", message: "Вы хотите добавить в друзья?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        let save = UIAlertAction(title: "Добавить", style: .default, handler: nil)
+        
+        let friendAdd = FireBaseFriendsModel.init(id: profileFriends?.userID ?? "")
+        let friendRef = self.ref.child(Session.shared.userID).child(profileFriends?.userID ?? "")
+        friendRef.setValue(friendAdd.toAnyObject())
+        
+        alert.addAction(cancel)
+        alert.addAction(save)
+        present(alert, animated: true, completion: nil)
+        
+    }
     let config = Realm.Configuration(schemaVersion: 1)
     lazy var realm = try! Realm(configuration: config)
     
@@ -25,6 +46,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         
 
@@ -59,14 +81,14 @@ class ProfileViewController: UIViewController {
     
 
 }
-//extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+//extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 //
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return profileFriends.count
+//        return profilePhoto?.photoID?.count ?? 0
 //    }
 //
 //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell =
+//        let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "ProfileCollectionViewCell", for: IndexPath) as! ProfileCollectionViewCell
 //    }
 //
 //

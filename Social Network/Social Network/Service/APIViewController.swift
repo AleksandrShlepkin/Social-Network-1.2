@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import WebKit
 import SwiftKeychainWrapper
+import Firebase
 
 
 class APIViewController: UIViewController, WKNavigationDelegate {
@@ -30,6 +31,8 @@ class APIViewController: UIViewController, WKNavigationDelegate {
         
 
     }
+    private let ref = Database.database().reference(withPath: "users")
+    
     func autorization() {
         var urlComponents = URLComponents()
                 urlComponents.scheme = "https"

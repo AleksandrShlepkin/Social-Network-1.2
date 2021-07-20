@@ -24,6 +24,7 @@
 		FA993D4426A1C3C3009872E0 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */; };
 		FAA07B2D269EB4E00038031E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */; };
 		FAA07B7726A17E840038031E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA07B7626A17E840038031E /* LoginViewController.swift */; };
+		FAB2B91426A70B5200565E45 /* GroupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2B91326A70B5200565E45 /* GroupProfileViewController.swift */; };
 		FADF645526849600005DF975 /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF645426849600005DF975 /* Sessions.swift */; };
 		FADFC566268E28B90045B7C6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */; };
 		FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A552683D01700209A3E /* AppDelegate.swift */; };
@@ -78,6 +79,7 @@
 		FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAA07B7626A17E840038031E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FAB2B91326A70B5200565E45 /* GroupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfileViewController.swift; sourceTree = "<group>"; };
 		FADF645426849600005DF975 /* Sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
 		FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAF20A522683D01700209A3E /* Social Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +164,7 @@
 		FA1D135A268DD8CF00A4571B /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				FAB2B91226A70B1F00565E45 /* GroupProfile */,
 				FA712AF2268DED61004A7295 /* GroupsViewController.swift */,
 			);
 			path = Groups;
@@ -185,6 +188,14 @@
 				FA48FD5D2693538B007B1D37 /* BaseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FAB2B91226A70B1F00565E45 /* GroupProfile */ = {
+			isa = PBXGroup;
+			children = (
+				FAB2B91326A70B5200565E45 /* GroupProfileViewController.swift */,
+			);
+			path = GroupProfile;
 			sourceTree = "<group>";
 		};
 		FADF64482684952E005DF975 /* Service */ = {
@@ -522,6 +533,7 @@
 				FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */,
 				FA26C90D268A0C2F0028158A /* FriendStruct.swift in Sources */,
 				FADF645526849600005DF975 /* Sessions.swift in Sources */,
+				FAB2B91426A70B5200565E45 /* GroupProfileViewController.swift in Sources */,
 				FA36E544268E14C7009EFBF2 /* PhotoViewController.swift in Sources */,
 				FA712AF3268DED61004A7295 /* GroupsViewController.swift in Sources */,
 				FAF20A582683D01700209A3E /* SceneDelegate.swift in Sources */,

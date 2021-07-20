@@ -2,6 +2,7 @@
 import Foundation
 import RealmSwift
 import DynamicJSON
+import Firebase
 
 
 class FriendsModel :BaseModel {
@@ -9,7 +10,7 @@ class FriendsModel :BaseModel {
     @objc dynamic var firstName: String?
     @objc dynamic var lastName: String?
     @objc dynamic var photo: String?
-    
+   
     convenience required init(data: JSON) {
         self.init()
         
@@ -64,5 +65,28 @@ class RealmService: RealmServiceProtocol {
     }
 }
 
+class FireBaseFriendsModel {
+    let id: String
+    let ref: DatabaseReference?
+    
+    init(id: String){
+        self.ref = nil
+        self.id = id
+    }
+    
+    init?(snapshot: DataSnapshot) {
+        guard let value = snapshot.value as? [ String : Any],
+              let id = value["id"] as? String
+        else { return nil }
+        
+        self.ref = snapshot.ref
+        self.id = id
+        
+    }
+    
+    func toAnyObject() -> [String : Any] {
+        return [ "id" : id]
+    }
+}
 
 
