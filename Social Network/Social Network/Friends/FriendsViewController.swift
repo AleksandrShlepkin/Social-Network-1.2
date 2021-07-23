@@ -68,15 +68,19 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = FriendTableView.dequeueReusableCell(withIdentifier: "FriendTableView", for: indexPath)
+        let cell = FriendTableView.dequeueReusableCell(withIdentifier: "FriendsTableViewCell", for: indexPath) as! FriendsTableViewCell
         let user = friends[indexPath.row]
-        cell.textLabel?.text = "\(user.firstName ?? "") \(user.lastName ?? "")"
-        cell.imageView?.sd_setImage(with: URL(string: user.photo ?? "" ), placeholderImage: UIImage())
+        cell.labelFriends.text = user.firstName ?? ""
+        cell.secondNameLabel.text = user.lastName ?? ""
+        cell.imageView?.sd_setImage(with: URL(string: user.photo ?? ""), placeholderImage: UIImage())
+        
+//        cell.textLabel?.text = "\(user.firstName ?? "") \(user.lastName ?? "")"
+//        cell.imageView?.sd_setImage(with: URL(string: user.photo ?? "" ), placeholderImage: UIImage())
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = friends[indexPath.row]
+//        let user = friends[indexPath.row]
         performSegue(withIdentifier: "goToProfile", sender: Any?.self)
     }
     

@@ -62,8 +62,6 @@ class ProfileViewController: UIViewController {
             }
 
         }
-//        let profile1 = realmService?.read()
-//        print(realmService?.config.fileURL as Any)
         do {
             self.realm.beginWrite()
             self.realm.add(profileFriends!)

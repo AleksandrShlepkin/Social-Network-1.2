@@ -25,6 +25,8 @@
 		FAA07B2D269EB4E00038031E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */; };
 		FAA07B7726A17E840038031E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA07B7626A17E840038031E /* LoginViewController.swift */; };
 		FAB2B91426A70B5200565E45 /* GroupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2B91326A70B5200565E45 /* GroupProfileViewController.swift */; };
+		FAB2B93026A99CD000565E45 /* SecondFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2B92F26A99CD000565E45 /* SecondFriendViewController.swift */; };
+		FAB2B93526A99DCB00565E45 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2B93426A99DCB00565E45 /* FriendsTableViewCell.swift */; };
 		FADF645526849600005DF975 /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF645426849600005DF975 /* Sessions.swift */; };
 		FADFC566268E28B90045B7C6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */; };
 		FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A552683D01700209A3E /* AppDelegate.swift */; };
@@ -80,6 +82,8 @@
 		FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAA07B7626A17E840038031E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FAB2B91326A70B5200565E45 /* GroupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfileViewController.swift; sourceTree = "<group>"; };
+		FAB2B92F26A99CD000565E45 /* SecondFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFriendViewController.swift; sourceTree = "<group>"; };
+		FAB2B93426A99DCB00565E45 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		FADF645426849600005DF975 /* Sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
 		FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAF20A522683D01700209A3E /* Social Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +159,7 @@
 			children = (
 				FA48FD4C269033A5007B1D37 /* Profile */,
 				FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */,
+				FAB2B93426A99DCB00565E45 /* FriendsTableViewCell.swift */,
 				FA36E543268E14C7009EFBF2 /* PhotoViewController.swift */,
 				FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */,
 			);
@@ -166,6 +171,7 @@
 			children = (
 				FAB2B91226A70B1F00565E45 /* GroupProfile */,
 				FA712AF2268DED61004A7295 /* GroupsViewController.swift */,
+				FAB2B92F26A99CD000565E45 /* SecondFriendViewController.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -528,6 +534,8 @@
 				FAA07B7726A17E840038031E /* LoginViewController.swift in Sources */,
 				FA4B3E93268A2E2E0094DAFB /* GroupStruct.swift in Sources */,
 				FA993D4426A1C3C3009872E0 /* RegistrationViewController.swift in Sources */,
+				FAB2B93526A99DCB00565E45 /* FriendsTableViewCell.swift in Sources */,
+				FAB2B93026A99CD000565E45 /* SecondFriendViewController.swift in Sources */,
 				FAF20A5A2683D01700209A3E /* APIViewController.swift in Sources */,
 				FA48FD5326903440007B1D37 /* ProfileCollectionViewCell.swift in Sources */,
 				FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */,

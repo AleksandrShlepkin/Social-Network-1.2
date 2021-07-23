@@ -31,7 +31,6 @@ class APIViewController: UIViewController, WKNavigationDelegate {
         
 
     }
-    private let ref = Database.database().reference(withPath: "users")
     
     func autorization() {
         var urlComponents = URLComponents()

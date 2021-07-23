@@ -62,5 +62,20 @@ extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let group = groups[indexPath.row]
+        performSegue(withIdentifier: "goToGroup", sender: Any?.self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToGroup" {
+            let vc = segue.destination as! GroupProfileViewController
+            guard let indexPath = GroupsTableView.indexPathForSelectedRow else {
+                return
+            }
+            let group = groups[indexPath.row]
+            vc.profileGroup2 = group
+    }
+    
+}
 }
