@@ -10,6 +10,8 @@
 		045C4190D553AD0212A2EC65 /* Pods_Social_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43AA5C574DF2480CE8B590E8 /* Pods_Social_Network.framework */; };
 		392295FD656B04E7C7489FED /* Pods_Social_NetworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 323AC0570756B3D4B5F37FB6 /* Pods_Social_NetworkTests.framework */; };
 		B124AE9D5CF74505E1DF22A6 /* Pods_Social_Network_Social_NetworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6DCA7E75AA0A1C813530DB /* Pods_Social_Network_Social_NetworkUITests.framework */; };
+		FA02727826AB595800224C1A /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02727726AB595800224C1A /* NewsViewController.swift */; };
+		FA02727D26AB599B00224C1A /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02727C26AB599B00224C1A /* NewsTableViewCell.swift */; };
 		FA26C90D268A0C2F0028158A /* FriendStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26C90C268A0C2F0028158A /* FriendStruct.swift */; };
 		FA36E544268E14C7009EFBF2 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E543268E14C7009EFBF2 /* PhotoViewController.swift */; };
 		FA36E549268E19C0009EFBF2 /* PhotoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */; };
@@ -25,8 +27,8 @@
 		FAA07B2D269EB4E00038031E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */; };
 		FAA07B7726A17E840038031E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA07B7626A17E840038031E /* LoginViewController.swift */; };
 		FAB2B91426A70B5200565E45 /* GroupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2B91326A70B5200565E45 /* GroupProfileViewController.swift */; };
-		FAB2B93026A99CD000565E45 /* SecondFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2B92F26A99CD000565E45 /* SecondFriendViewController.swift */; };
 		FAB2B93526A99DCB00565E45 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2B93426A99DCB00565E45 /* FriendsTableViewCell.swift */; };
+		FAB2B93D26AA92B000565E45 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2B93C26AA92B000565E45 /* News.swift */; };
 		FADF645526849600005DF975 /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF645426849600005DF975 /* Sessions.swift */; };
 		FADFC566268E28B90045B7C6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */; };
 		FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A552683D01700209A3E /* AppDelegate.swift */; };
@@ -66,6 +68,8 @@
 		6C6DCA7E75AA0A1C813530DB /* Pods_Social_Network_Social_NetworkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Social_Network_Social_NetworkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06D632AF68A53CB2A612303 /* Pods-Social Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Network.debug.xcconfig"; path = "Target Support Files/Pods-Social Network/Pods-Social Network.debug.xcconfig"; sourceTree = "<group>"; };
 		A0DE53972BB11C4E5A6E2614 /* Pods-Social Network-Social NetworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Network-Social NetworkUITests.release.xcconfig"; path = "Target Support Files/Pods-Social Network-Social NetworkUITests/Pods-Social Network-Social NetworkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FA02727726AB595800224C1A /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		FA02727C26AB599B00224C1A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		FA26C90C268A0C2F0028158A /* FriendStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendStruct.swift; sourceTree = "<group>"; };
 		FA36E543268E14C7009EFBF2 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStruct.swift; sourceTree = "<group>"; };
@@ -82,8 +86,8 @@
 		FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAA07B7626A17E840038031E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FAB2B91326A70B5200565E45 /* GroupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfileViewController.swift; sourceTree = "<group>"; };
-		FAB2B92F26A99CD000565E45 /* SecondFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFriendViewController.swift; sourceTree = "<group>"; };
 		FAB2B93426A99DCB00565E45 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		FAB2B93C26AA92B000565E45 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		FADF645426849600005DF975 /* Sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
 		FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAF20A522683D01700209A3E /* Social Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +158,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA02727626AB593200224C1A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				FA02727726AB595800224C1A /* NewsViewController.swift */,
+				FA02727C26AB599B00224C1A /* NewsTableViewCell.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		FA1D1359268DD8B800A4571B /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +184,6 @@
 			children = (
 				FAB2B91226A70B1F00565E45 /* GroupProfile */,
 				FA712AF2268DED61004A7295 /* GroupsViewController.swift */,
-				FAB2B92F26A99CD000565E45 /* SecondFriendViewController.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -192,6 +204,7 @@
 				FA4B3E92268A2E2E0094DAFB /* GroupStruct.swift */,
 				FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */,
 				FA48FD5D2693538B007B1D37 /* BaseModel.swift */,
+				FAB2B93C26AA92B000565E45 /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,6 +277,7 @@
 		FAF20A542683D01700209A3E /* Social Network */ = {
 			isa = PBXGroup;
 			children = (
+				FA02727626AB593200224C1A /* News */,
 				FA1D135A268DD8CF00A4571B /* Groups */,
 				FA1D1359268DD8B800A4571B /* Friends */,
 				FADF6450268495E2005DF975 /* Delegate */,
@@ -535,8 +549,8 @@
 				FA4B3E93268A2E2E0094DAFB /* GroupStruct.swift in Sources */,
 				FA993D4426A1C3C3009872E0 /* RegistrationViewController.swift in Sources */,
 				FAB2B93526A99DCB00565E45 /* FriendsTableViewCell.swift in Sources */,
-				FAB2B93026A99CD000565E45 /* SecondFriendViewController.swift in Sources */,
 				FAF20A5A2683D01700209A3E /* APIViewController.swift in Sources */,
+				FAB2B93D26AA92B000565E45 /* News.swift in Sources */,
 				FA48FD5326903440007B1D37 /* ProfileCollectionViewCell.swift in Sources */,
 				FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */,
 				FA26C90D268A0C2F0028158A /* FriendStruct.swift in Sources */,
@@ -545,12 +559,14 @@
 				FA36E544268E14C7009EFBF2 /* PhotoViewController.swift in Sources */,
 				FA712AF3268DED61004A7295 /* GroupsViewController.swift in Sources */,
 				FAF20A582683D01700209A3E /* SceneDelegate.swift in Sources */,
+				FA02727826AB595800224C1A /* NewsViewController.swift in Sources */,
 				FA50C532268DDE3000B3CC59 /* FriendsViewController.swift in Sources */,
 				FA565BFF2684A6ED000B4F96 /* APIService.swift in Sources */,
 				FA48FD5E2693538B007B1D37 /* BaseModel.swift in Sources */,
 				FA36E549268E19C0009EFBF2 /* PhotoStruct.swift in Sources */,
 				FADFC566268E28B90045B7C6 /* PhotoCollectionViewCell.swift in Sources */,
 				FA48FD4E269033C7007B1D37 /* ProfileViewController.swift in Sources */,
+				FA02727D26AB599B00224C1A /* NewsTableViewCell.swift in Sources */,
 				FAF20A602683D01700209A3E /* Social_Network.xcdatamodeld in Sources */,
 				FA565C052684B22D000B4F96 /* Extention.swift in Sources */,
 			);
