@@ -91,7 +91,7 @@ final class APIService {
     }
     
     
-    func getNews(){
+    func getNews(completion: @escaping ([NewsSecond]) -> () ){
         let method = "/newsfeed.get"
         let ref = Database.database().reference(withPath: "News")
         let param: Parameters =
@@ -106,7 +106,10 @@ final class APIService {
             guard let data = respons.data else { return }
             print(data.prettyJSON as Any)
             guard let items = JSON(data).response.item.array else { return }
-            let news = items.map{ News(data: $0)
+            let news = items.map{ NewsSecond(data: $0)
+            }
+            DispatchQueue.main.async {
+                completion(news)
             }
                         
             for news in items {

@@ -10,6 +10,22 @@ import RealmSwift
 import DynamicJSON
 import Firebase
 
+class NewsSecond: BaseModel{
+    @objc dynamic var userID: String?
+    @objc dynamic var photo: String?
+    @objc dynamic var firstName: String?
+    @objc dynamic var secondName: String?
+
+    convenience required init(data: JSON) {
+        self.init()
+        
+        self.userID = data.id.string
+        self.photo = data.photo_100.string
+        self.firstName = data.first_name.string
+        self.secondName = data.last_name.string
+    }
+}
+
 
 
 class News {
@@ -25,7 +41,8 @@ class News {
     var urlImage: String?
     let ref: DatabaseReference?
     
-    init(data: JSON) {
+    
+   init(data: JSON) {
         self.ref = nil
         self.postId = data.post_id.int ?? 0
         self.date = data.date.int ?? 0

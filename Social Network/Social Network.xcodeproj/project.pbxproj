@@ -23,6 +23,8 @@
 		FA565BFF2684A6ED000B4F96 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565BFE2684A6ED000B4F96 /* APIService.swift */; };
 		FA565C052684B22D000B4F96 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565C042684B22D000B4F96 /* Extention.swift */; };
 		FA712AF3268DED61004A7295 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA712AF2268DED61004A7295 /* GroupsViewController.swift */; };
+		FA763E8126B7FFDC006725F2 /* NewsSecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA763E7F26B7FFDC006725F2 /* NewsSecondTableViewCell.swift */; };
+		FA763E8226B7FFDC006725F2 /* NewsSecondTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA763E8026B7FFDC006725F2 /* NewsSecondTableViewCell.xib */; };
 		FA993D4426A1C3C3009872E0 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */; };
 		FAA07B2D269EB4E00038031E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */; };
 		FAA07B7726A17E840038031E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA07B7626A17E840038031E /* LoginViewController.swift */; };
@@ -82,6 +84,8 @@
 		FA565C042684B22D000B4F96 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		FA5DF6E6295CC9E3434F0270 /* Pods-Social NetworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social NetworkTests.release.xcconfig"; path = "Target Support Files/Pods-Social NetworkTests/Pods-Social NetworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA712AF2268DED61004A7295 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		FA763E7F26B7FFDC006725F2 /* NewsSecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSecondTableViewCell.swift; sourceTree = "<group>"; };
+		FA763E8026B7FFDC006725F2 /* NewsSecondTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsSecondTableViewCell.xib; sourceTree = "<group>"; };
 		FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAA07B7626A17E840038031E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 			children = (
 				FA02727726AB595800224C1A /* NewsViewController.swift */,
 				FA02727C26AB599B00224C1A /* NewsTableViewCell.swift */,
+				FA763E7F26B7FFDC006725F2 /* NewsSecondTableViewCell.swift */,
+				FA763E8026B7FFDC006725F2 /* NewsSecondTableViewCell.xib */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF20A652683D01A00209A3E /* LaunchScreen.storyboard in Resources */,
+				FA763E8226B7FFDC006725F2 /* NewsSecondTableViewCell.xib in Resources */,
 				FAA07B2D269EB4E00038031E /* GoogleService-Info.plist in Resources */,
 				FAF20A622683D01A00209A3E /* Assets.xcassets in Resources */,
 				FAF20A5D2683D01700209A3E /* Main.storyboard in Resources */,
@@ -557,6 +564,7 @@
 				FADF645526849600005DF975 /* Sessions.swift in Sources */,
 				FAB2B91426A70B5200565E45 /* GroupProfileViewController.swift in Sources */,
 				FA36E544268E14C7009EFBF2 /* PhotoViewController.swift in Sources */,
+				FA763E8126B7FFDC006725F2 /* NewsSecondTableViewCell.swift in Sources */,
 				FA712AF3268DED61004A7295 /* GroupsViewController.swift in Sources */,
 				FAF20A582683D01700209A3E /* SceneDelegate.swift in Sources */,
 				FA02727826AB595800224C1A /* NewsViewController.swift in Sources */,
