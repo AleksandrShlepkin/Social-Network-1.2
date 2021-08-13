@@ -13,19 +13,18 @@ class GroupsViewController: UIViewController {
     let config = Realm.Configuration(schemaVersion: 1)
     lazy var realm = try! Realm(configuration: config)
     
-    @IBOutlet weak var GroupsTableView: UITableView!{
-        didSet {
-            GroupsTableView.delegate = self
-            GroupsTableView.dataSource = self
-            GroupsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "GroupsTableView")
-        }
-    }
+    @IBOutlet weak var GroupsTableView: UITableView!
+    
     private  var apiservice = APIService()
     private var groups: [GroupsModel] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GroupsTableView.delegate = self
+        GroupsTableView.dataSource = self
+        GroupsTableView.register(UINib(nibName: "GroupsTableViewCell", bundle: nil), forCellReuseIdentifier: "GroupsTableViewCell")
+
         let group = DispatchGroup()
         group.enter()
         apiservice.getGroup { [weak self] usersGroups in
@@ -55,10 +54,11 @@ extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = GroupsTableView.dequeueReusableCell(withIdentifier: "GroupsTableView", for: indexPath)
+        let cell = GroupsTableView.dequeueReusableCell(withIdentifier: "GroupsTableViewCell", for: indexPath) as! GroupsTableViewCell
         let userGroups = groups[indexPath.row]
-        cell.textLabel?.text = "\(userGroups.name ?? "")"
-        cell.imageView?.sd_setImage(with: URL(string: userGroups.photo ?? ""), placeholderImage: UIImage())
+        cell.imageGroup.sd_setImage(with: URL(string: userGroups.photo ?? ""), placeholderImage: UIImage())
+        cell.nameGroup.text = userGroups.name ?? ""
+       
         return cell
     }
     

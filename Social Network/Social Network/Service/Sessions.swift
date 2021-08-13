@@ -10,6 +10,6 @@ import Foundation
 final class Session {
     static var shared = Session()
     private init (){}
-    var token1 = ""
+    var token = ""
     var userID = ""
 }

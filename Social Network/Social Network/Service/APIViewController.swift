@@ -18,7 +18,7 @@ class APIViewController: UIViewController, WKNavigationDelegate {
         didSet{
             webView.navigationDelegate = self
             if let token = KeychainWrapper.standard.string(forKey: "token"){
-                Session.shared.token1 = token
+                Session.shared.token = token
                 showMainTabBar()
                 return
             }
@@ -71,7 +71,7 @@ class APIViewController: UIViewController, WKNavigationDelegate {
             }
             
         if let token2 = params["access_token"], let userId = params["user_id"] { print("TOKEN = ", token2 as Any)
-            Session.shared.token1  = token2
+            Session.shared.token  = token2
             Session.shared.userID = userId
             showMainTabBar()
 

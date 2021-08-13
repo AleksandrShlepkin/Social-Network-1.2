@@ -13,6 +13,7 @@ import Firebase
 class ProfileViewController: UIViewController {
     
     
+    
     @IBOutlet weak var photoCollection: UICollectionView!
     
     let ref = Database.database().reference(withPath: "Friends")
@@ -82,11 +83,14 @@ class ProfileViewController: UIViewController {
 //extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 //
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return profilePhoto?.photoID?.count ?? 0
+//        return profilePhoto?.photoID?.count ?? 0 
+//        
 //    }
 //
 //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "ProfileCollectionViewCell", for: IndexPath) as! ProfileCollectionViewCell
+//        let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "ProfileCollectionViewCell", for: indexPath) as! ProfileCollectionViewCell
+//        cell.profilePhoto.sd_setImage(with: URL(string: profilePhoto?.photoID ?? ""), placeholderImage: UIImage())
+//        return cell
 //    }
 //
 //

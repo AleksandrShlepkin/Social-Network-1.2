@@ -17,6 +17,7 @@ target 'Social Network' do
   end
   
 pod 'Alamofire'
+pod 'AlamofireImage'
 pod 'DynamicJSON'
 pod 'SwiftKeychainWrapper'
 pod 'RealmSwift'
