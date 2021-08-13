@@ -1,11 +1,13 @@
 {
   "images" : [
     {
+      "filename" : "icons8-вконтакте-40.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "icons8-вконтакте-60.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
@@ -89,6 +91,12 @@
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
+    },
+    {
+      "filename" : "icons8-вконтакте-128.png",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "128x128"
     }
   ],
   "info" : {
