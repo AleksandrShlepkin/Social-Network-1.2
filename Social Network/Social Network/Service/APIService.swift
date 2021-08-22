@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import DynamicJSON
 import Firebase
+import SwiftyJSON
 
 final class APIService {
     
@@ -32,7 +33,7 @@ final class APIService {
         
         AF.request(url, method: .get, parameters: param).responseData { (response) in
             guard let data = response.data else { return }
-            print(data.prettyJSON as Any)
+//            print(data.prettyJSON as Any)
             guard let items = JSON(data).response.items.array else { return }
             let groups = items.map { GroupsModel(data: $0)}
             DispatchQueue.main.async {
@@ -57,7 +58,7 @@ final class APIService {
         AF.request(url, method: .get, parameters: parameters).responseData {  response in
             
             guard let data = response.data else { return}
-            print(data.prettyJSON as Any)
+//            print(data.prettyJSON as Any)
             guard let items = JSON(data).response.items.array else { return }
             let friends = items.map { FriendsModel(data: $0) }
             DispatchQueue.main.async {
@@ -80,7 +81,7 @@ final class APIService {
         let url = baseURl + method
         AF.request(url, method: .get, parameters: param).responseData { response in
             guard let data = response.data else { return}
-            print(data.prettyJSON as Any)
+//            print(data.prettyJSON as Any)
             guard let items = JSON(data).response.item.array else { return }
             let photos = items.map { PhotoModel(data: $0)}
             
@@ -90,30 +91,46 @@ final class APIService {
         }
     }
     
-    func getNews(completion: @escaping (NewsCodable?) -> ()) {
-        let method = "/newsfeed.get"
-        
-        let parametrs: Parameters =
-            [
-                "user_id": Session.shared.userID,
-                "filters" : "post",
-                "count" : 30,
-                "access_token": Session.shared.token,
-                "v": version
-            ]
-        let url = baseURl + method
-        
-        AF.request(url, method: .get, parameters: parametrs).responseData { respons in
-            guard let data = respons.data else { return }
-//            print(data.prettyJSON as Any)
-            do{
-                var feedNews: NewsCodable
-                feedNews = try JSONDecoder().decode(NewsCodable.self, from: data)
-                completion(feedNews)
-            } catch {
-                print(error)
-            }
-        }
-    }
+//    func getNews(completion: @escaping (NewsCodable?) -> ()) {
+//        let method = "/newsfeed.get"
+//        
+//        let parametrs: Parameters =
+//            [
+//                "user_id": Session.shared.userID,
+//                "filters" : "post",
+//                "count" : 30,
+//                "access_token": Session.shared.token,
+//                "v": version
+//            ]
+//        let url = baseURl + method
+//        
+//        AF.request(url, method: .get, parameters: parametrs).responseData { respons in
+//                            
+//            guard let data = respons.data else { return }
+//
+//            let decoder = JSONDecoder()
+//            let json = JSON(data)
+//            let dispatch = DispatchGroup()
+//
+//            let JSONItemsArray = json["response"]["items"].arrayValue
+//            let JSONProfilesArray = json["response"]["profiles"].arrayValue
+//            let JSONGroupsArray = json["response"]["groups"].arrayValue
+//
+//            var itemArray: [Item] = []
+//            var groupArray: [Group] = []
+//            var profileArray: [Profile] = []
+//            
+//            
+//            DispatchQueue.global().async(group: dispatch) {
+//                for (index, items) in  itemArray.enumerated(){
+//                    do {
+//                        let decodItem = decoder.decode(Item.self, from: items.rawData())
+//                        JSONItemsArray.append(decodItem)
+//                    }
+//                }
+//            }
+//           
+//        }
+//    }
 
 }

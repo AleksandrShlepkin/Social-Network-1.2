@@ -24,12 +24,14 @@
 		FA895EF626C05DAC009954E7 /* NewsCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA895EF526C05DAC009954E7 /* NewsCodable.swift */; };
 		FA895EFE26C06051009954E7 /* NewsCodableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA895EFD26C06051009954E7 /* NewsCodableViewController.swift */; };
 		FA895F0326C06078009954E7 /* NewsCodableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA895F0226C06078009954E7 /* NewsCodableTableViewCell.swift */; };
+		FA94C4AF26D26E3E00F6B44A /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94C4AE26D26E3E00F6B44A /* NewsAPI.swift */; };
 		FA993D4426A1C3C3009872E0 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */; };
 		FAA07B2D269EB4E00038031E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */; };
 		FAA07B7726A17E840038031E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA07B7626A17E840038031E /* LoginViewController.swift */; };
 		FAB2B91426A70B5200565E45 /* GroupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2B91326A70B5200565E45 /* GroupProfileViewController.swift */; };
 		FAB2B93526A99DCB00565E45 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2B93426A99DCB00565E45 /* FriendsTableViewCell.swift */; };
 		FAB8340A26C468590022A8B3 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8340926C468590022A8B3 /* File.swift */; };
+		FAB8342726CD08450022A8B3 /* NewsSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8342626CD08450022A8B3 /* NewsSecond.swift */; };
 		FAD63A9226B8315A001302FD /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD63A9026B8315A001302FD /* GroupsTableViewCell.swift */; };
 		FAD63A9326B8315A001302FD /* GroupsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD63A9126B8315A001302FD /* GroupsTableViewCell.xib */; };
 		FADF645526849600005DF975 /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF645426849600005DF975 /* Sessions.swift */; };
@@ -86,12 +88,14 @@
 		FA895EF526C05DAC009954E7 /* NewsCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCodable.swift; sourceTree = "<group>"; };
 		FA895EFD26C06051009954E7 /* NewsCodableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCodableViewController.swift; sourceTree = "<group>"; };
 		FA895F0226C06078009954E7 /* NewsCodableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCodableTableViewCell.swift; sourceTree = "<group>"; };
+		FA94C4AE26D26E3E00F6B44A /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAA07B7626A17E840038031E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FAB2B91326A70B5200565E45 /* GroupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfileViewController.swift; sourceTree = "<group>"; };
 		FAB2B93426A99DCB00565E45 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		FAB8340926C468590022A8B3 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		FAB8342626CD08450022A8B3 /* NewsSecond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSecond.swift; sourceTree = "<group>"; };
 		FAD63A9026B8315A001302FD /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		FAD63A9126B8315A001302FD /* GroupsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsTableViewCell.xib; sourceTree = "<group>"; };
 		FADF645426849600005DF975 /* Sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
@@ -217,12 +221,28 @@
 			path = NewsCodable;
 			sourceTree = "<group>";
 		};
+		FA94C4AD26D26E1E00F6B44A /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				FA94C4AE26D26E3E00F6B44A /* NewsAPI.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
 		FAB2B91226A70B1F00565E45 /* GroupProfile */ = {
 			isa = PBXGroup;
 			children = (
 				FAB2B91326A70B5200565E45 /* GroupProfileViewController.swift */,
 			);
 			path = GroupProfile;
+			sourceTree = "<group>";
+		};
+		FAB8342526CD05FC0022A8B3 /* NewsSecond */ = {
+			isa = PBXGroup;
+			children = (
+				FAB8342626CD08450022A8B3 /* NewsSecond.swift */,
+			);
+			path = NewsSecond;
 			sourceTree = "<group>";
 		};
 		FADF64482684952E005DF975 /* Service */ = {
@@ -286,6 +306,8 @@
 		FAF20A542683D01700209A3E /* Social Network */ = {
 			isa = PBXGroup;
 			children = (
+				FA94C4AD26D26E1E00F6B44A /* APIService */,
+				FAB8342526CD05FC0022A8B3 /* NewsSecond */,
 				FA895EF426C05D91009954E7 /* NewsCodable */,
 				FA1D135A268DD8CF00A4571B /* Groups */,
 				FA1D1359268DD8B800A4571B /* Friends */,
@@ -571,8 +593,10 @@
 				FA36E544268E14C7009EFBF2 /* PhotoViewController.swift in Sources */,
 				FA712AF3268DED61004A7295 /* GroupsViewController.swift in Sources */,
 				FA895F0326C06078009954E7 /* NewsCodableTableViewCell.swift in Sources */,
+				FAB8342726CD08450022A8B3 /* NewsSecond.swift in Sources */,
 				FAF20A582683D01700209A3E /* SceneDelegate.swift in Sources */,
 				FA50C532268DDE3000B3CC59 /* FriendsViewController.swift in Sources */,
+				FA94C4AF26D26E3E00F6B44A /* NewsAPI.swift in Sources */,
 				FA565BFF2684A6ED000B4F96 /* APIService.swift in Sources */,
 				FA48FD5E2693538B007B1D37 /* BaseModel.swift in Sources */,
 				FA36E549268E19C0009EFBF2 /* PhotoStruct.swift in Sources */,

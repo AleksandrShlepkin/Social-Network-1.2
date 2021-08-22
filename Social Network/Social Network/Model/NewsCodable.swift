@@ -21,6 +21,12 @@ struct Response: Codable {
         case items, groups, profiles
         case nextFrom = "next_from"
     }
+    init(items: [Item], groups: [Group], profiles: [Profile]){
+        self.items = items
+        self.groups = groups
+        self.profiles = profiles
+        self.nextFrom = ""
+    }
 }
 
 // MARK: - Group
@@ -50,7 +56,7 @@ struct Group: Codable {
 // MARK: - Item
 struct Item: Codable {
     let donut: Donut?
-    let comments: Comments
+    let comments: Comments?
     let canSetCategory, isFavorite: Bool?
     let shortTextRate: Double?
     let likes: Likes
@@ -86,14 +92,23 @@ struct Item: Codable {
         case views
         case signerID = "signer_id"
     }
+    
+    var hasText: Bool {
+        return self.text != nil && self.text != ""
+    }
+    var hasUrl: Bool {
+        return self.attachments?[0].photo?.size?[0].url != nil
+    }
 }
 
 // MARK: - Attachment
 struct Attachment: Codable {
-    let type: String
+    let type: String?
     let photo: Photo?
     let video: Video?
 }
+
+
 
 // MARK: - Photo
 struct Photo: Codable {
@@ -104,7 +119,7 @@ struct Photo: Codable {
     let ownerID: Int?
     let accessKey: String
     let postID: Int?
-    let urlPhoto: Size?
+    let size: [Size]?
     
     enum CodingKeys: String, CodingKey {
         case albumID = "album_id"
@@ -114,7 +129,7 @@ struct Photo: Codable {
         case ownerID = "owner_id"
         case accessKey = "access_key"
         case postID = "post_id"
-        case urlPhoto
+        case size
     }
 }
 
@@ -122,15 +137,16 @@ struct Photo: Codable {
 struct Size: Codable {
     let width, height: Int?
     let url: String?
-    let type: TypeEnumPhoto?
+    let type: String?
     let withPadding: Int?
 
     enum CodingKeys: String, CodingKey {
         case width, height
         case type
-        case url = "url"
+        case url
         case withPadding = "with_padding"
     }
+  
 }
 
 // MARK: - Video
@@ -269,14 +285,18 @@ struct OnlineInfo: Codable {
 }
 
 enum TypeEnumPhoto: String, Codable {
-    case m = "m"
-    case o = "o"
-    case p = "p"
-    case q = "q"
-    case r = "r"
-    case s = "s"
-    case w = "w"
-    case x = "x"
-    case y = "y"
-    case z = "z"
+    case photo = "photo"
+    case link = "link"
+    case video = "video"
+    case audio = "audio"
+//    case m = "m"
+//    case o = "o"
+//    case p = "p"
+//    case q = "q"
+//    case r = "r"
+//    case s = "s"
+//    case w = "w"
+//    case x = "x"
+//    case y = "y"
+//    case z = "z"
 }

@@ -10,16 +10,17 @@ import UIKit
 class NewsCodableViewController: UIViewController {
     
     @IBOutlet weak var newsCodableTableView: UITableView!
-    var feedItems: [Item] = []
-    var feedProfiles: [Profile] = []
-    var feedGroups: [Group] = []
-    let apiService = APIService()
-
+    private var feedItems: [Item] = []
+    private var feedProfiles: [Profile] = []
+    private var feedGroups: [Group] = []
+    let apiService = NewsAPI()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newsCodableTableView.dataSource = self
         newsCodableTableView.delegate = self
-
+        
         apiService.getNews { [weak self] feed in
             guard let self = self else { return }
             
@@ -32,8 +33,8 @@ class NewsCodableViewController: UIViewController {
         
     }
     
-
-
+    
+    
 }
 extension NewsCodableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

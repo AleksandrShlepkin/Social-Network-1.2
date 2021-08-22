@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import SDWebImage
 
 class NewsCodableTableViewCell: UITableViewCell {
     
@@ -30,6 +31,9 @@ class NewsCodableTableViewCell: UITableViewCell {
     @IBOutlet weak var dataNews: UILabel!
     @IBOutlet weak var mainImageNews: UIImageView!
     @IBOutlet weak var mainTextNews: UILabel!
+    
+    
+    
     
 
     override func awakeFromNib() {
@@ -63,43 +67,46 @@ class NewsCodableTableViewCell: UITableViewCell {
         }
         
         likeCount.text = "\(item.likes.count)"
-        commentsCount.text = "\(item.comments.count)"
-        repostCount.text = "\(item.reposts.count)"
+        commentsCount.text = "\(item.comments!.count)"
         mainTextNews.text = item.text
         dataNews.text = item.date.getDateStringFromUTC()
 
+            
         if item.attachments != nil {
             if let firstAttachment = item.attachments?[0] {
 
                 switch firstAttachment.type {
 
                 case "video":
-                    mainImageNews.image = UIImage(named: "defaultimage")
+                    mainImageNews.image = UIImage(named: "DefaultImage")
                     
-                case "link":
-                    if let photoNews = firstAttachment.photo?.urlPhoto?.url {
+                case "link" :
+                    if let photoNews = firstAttachment.photo?.size?[0].url {
                         AF.request(photoNews, method: .get).responseImage { response in
-                            guard let image = response.value else { return }
-                            self.mainImageNews.image = image
+                            self.mainImageNews.sd_setImage(with: URL(string: "\(photoNews)"), placeholderImage: UIImage())
+//                            guard let image = response.value else { return }
+//                            self.mainImageNews.image = image
                         }
                     }
 
-                case "photo":
-                    if let photoNews = firstAttachment.photo?.urlPhoto?.url{
+                case "photo" :
+                    if let photoNews = firstAttachment.photo?.size?[0].url {
                         AF.request(photoNews, method: .get).responseImage { response in
-                            guard let image = response.value else { return }
-                            self.mainImageNews.image = image
+                           // guard let image = response.value else { return }
+                            self.mainImageNews.sd_setImage(with: URL(string: "\(photoNews)"), placeholderImage: UIImage())
+                                //UIImage(named: "DefaultImage")
                         }
                     }
 
                 default:
 
-                    mainImageNews.image = UIImage(named: "defaultimage")
+                    mainImageNews.image = UIImage(named: "DefaultImage")
                 }
             }
         }
 
     }
+    
 }
 
 extension Double {
