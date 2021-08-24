@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Alamofire
 import AlamofireImage
+import WebKit
 class FirstCell: UITableViewCell {
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var profileName: UILabel!
@@ -44,9 +45,10 @@ class FirstCell: UITableViewCell {
 class SecondCell: UITableViewCell {
     @IBOutlet weak var mainPhotoNews: UIImageView!
     
-    func configure(url: String? = nil, defaultImage: String? = nil) {
+    
+    func configure(url: String? = nil) {
 
-        if let defaultImage = defaultImage{
+        if  url == nil {
             mainPhotoNews.image = UIImage(named: "DefaultImage")
         } else {
             AF.request(url!, method: .get).responseImage { response in

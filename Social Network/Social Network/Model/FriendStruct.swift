@@ -10,6 +10,7 @@ class FriendsModel :BaseModel {
     @objc dynamic var firstName: String?
     @objc dynamic var lastName: String?
     @objc dynamic var photo: String?
+    @objc dynamic var online: String?
    
     convenience required init(data: JSON) {
         self.init()
@@ -18,6 +19,7 @@ class FriendsModel :BaseModel {
         self.firstName = data.first_name.string
         self.lastName = data.last_name.string
         self.photo = data.photo_100.string
+        self.online = data.online.string
     }
 }
 

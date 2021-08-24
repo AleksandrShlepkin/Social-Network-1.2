@@ -367,7 +367,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FriendsTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendsTableViewCell" rowHeight="95" id="eIk-Sc-tQS" customClass="FriendsTableViewCell" customModule="Social_Network" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FriendsTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendCell" rowHeight="95" id="eIk-Sc-tQS" customClass="FriendsTableViewCell" customModule="Social_Network" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eIk-Sc-tQS" id="zZ2-vI-vUB">
@@ -398,23 +398,46 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXs-bB-gRx">
+                                                    <rect key="frame" x="331" y="10" width="20" height="22"/>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="circle.fill" catalog="system">
+                                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfH-WQ-bxD">
+                                                    <rect key="frame" x="354" y="10" width="51" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kfH-WQ-bxD" secondAttribute="trailing" constant="-11" id="2iq-N2-v7G"/>
+                                                <constraint firstItem="kfH-WQ-bxD" firstAttribute="top" secondItem="zZ2-vI-vUB" secondAttribute="top" constant="10" id="4fX-C6-DKR"/>
+                                                <constraint firstItem="vXs-bB-gRx" firstAttribute="top" secondItem="zZ2-vI-vUB" secondAttribute="top" constant="10" id="BUc-mm-ndZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="kfH-WQ-bxD" secondAttribute="bottom" constant="64" id="DEc-X3-OHg"/>
                                                 <constraint firstItem="qI7-g7-GfC" firstAttribute="leading" secondItem="zZ2-vI-vUB" secondAttribute="leadingMargin" constant="22" id="DWl-XF-70y"/>
                                                 <constraint firstItem="poS-bq-Jze" firstAttribute="leading" secondItem="qI7-g7-GfC" secondAttribute="trailing" constant="18" id="EST-j4-bxo"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tE7-WL-27V" secondAttribute="trailing" constant="20" symbolic="YES" id="Rh3-Kh-bVI"/>
                                                 <constraint firstItem="tE7-WL-27V" firstAttribute="top" secondItem="poS-bq-Jze" secondAttribute="bottom" constant="4.5" id="ULS-bY-WDB"/>
                                                 <constraint firstItem="qI7-g7-GfC" firstAttribute="centerY" secondItem="poS-bq-Jze" secondAttribute="centerY" constant="22.5" id="Wzp-Hh-yak"/>
+                                                <constraint firstAttribute="bottom" secondItem="vXs-bB-gRx" secondAttribute="bottom" constant="63" id="aNq-vV-xWi"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="poS-bq-Jze" secondAttribute="trailing" constant="20" symbolic="YES" id="eUj-gV-BAk"/>
+                                                <constraint firstItem="kfH-WQ-bxD" firstAttribute="leading" secondItem="vXs-bB-gRx" secondAttribute="trailing" constant="3" id="efE-zm-GuA"/>
                                                 <constraint firstItem="poS-bq-Jze" firstAttribute="top" secondItem="zZ2-vI-vUB" secondAttribute="topMargin" constant="5" id="fqM-Zn-wSl"/>
                                                 <constraint firstItem="qI7-g7-GfC" firstAttribute="top" secondItem="zZ2-vI-vUB" secondAttribute="topMargin" constant="5" id="nwI-tl-whH"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="qI7-g7-GfC" secondAttribute="bottom" constant="25" id="pHi-R1-Pra"/>
                                                 <constraint firstItem="tE7-WL-27V" firstAttribute="leading" secondItem="poS-bq-Jze" secondAttribute="leading" id="sdQ-Gr-KKD"/>
+                                                <constraint firstItem="kfH-WQ-bxD" firstAttribute="leading" secondItem="vXs-bB-gRx" secondAttribute="trailing" constant="3" id="w7x-LR-UeL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageFriend" destination="qI7-g7-GfC" id="CpO-61-gjJ"/>
                                             <outlet property="labelFriends" destination="poS-bq-Jze" id="CBX-yT-KPn"/>
+                                            <outlet property="onlineButton" destination="vXs-bB-gRx" id="JGh-2x-uop"/>
+                                            <outlet property="onlineLabel" destination="kfH-WQ-bxD" id="Kru-8D-MpT"/>
                                             <outlet property="secondNameLabel" destination="tE7-WL-27V" id="ob5-tV-Fie"/>
                                         </connections>
                                     </tableViewCell>
@@ -830,22 +853,22 @@
                                             <outlet property="profilePhoto" destination="gJb-jK-aAU" id="iY6-1Z-a2N"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SecondCell" rowHeight="250" id="h5B-WT-4PW" customClass="SecondCell" customModule="Social_Network" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="123" width="414" height="250"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SecondCell" rowHeight="236" id="h5B-WT-4PW" customClass="SecondCell" customModule="Social_Network" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="123" width="414" height="236"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h5B-WT-4PW" id="FDf-YI-le2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="236"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eY4-cP-q3O">
-                                                    <rect key="frame" x="20" y="11" width="374" height="228"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="214"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eY4-cP-q3O" firstAttribute="trailing" secondItem="FDf-YI-le2" secondAttribute="trailingMargin" id="51y-aN-In3"/>
-                                                <constraint firstItem="eY4-cP-q3O" firstAttribute="leading" secondItem="FDf-YI-le2" secondAttribute="leadingMargin" id="C1P-jT-r68"/>
-                                                <constraint firstItem="eY4-cP-q3O" firstAttribute="top" secondItem="FDf-YI-le2" secondAttribute="topMargin" id="Uio-hG-gEt"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="eY4-cP-q3O" secondAttribute="bottom" id="XhT-hA-Qid"/>
+                                                <constraint firstItem="eY4-cP-q3O" firstAttribute="leading" secondItem="FDf-YI-le2" secondAttribute="leadingMargin" id="4kJ-PK-NvI"/>
+                                                <constraint firstItem="eY4-cP-q3O" firstAttribute="trailing" secondItem="FDf-YI-le2" secondAttribute="trailingMargin" id="6kt-lO-sHe"/>
+                                                <constraint firstItem="eY4-cP-q3O" firstAttribute="top" secondItem="FDf-YI-le2" secondAttribute="topMargin" id="Rll-rg-xNG"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eY4-cP-q3O" secondAttribute="bottom" id="SUa-Ao-9Pz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -853,7 +876,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThirdCell" rowHeight="56" id="beS-VF-c6a" customClass="ThirdCell" customModule="Social_Network" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="373" width="414" height="56"/>
+                                        <rect key="frame" x="0.0" y="359" width="414" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="beS-VF-c6a" id="s4j-T5-xZG">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -878,7 +901,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FourCell" rowHeight="38" id="T1L-1I-ZhS" customClass="FourCell" customModule="Social_Network" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="429" width="414" height="38"/>
+                                        <rect key="frame" x="0.0" y="415" width="414" height="38"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T1L-1I-ZhS" id="8fb-OL-Coj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="38"/>
@@ -1020,6 +1043,7 @@
         <image name="arrowshape.turn.up.forward" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="bubble.right" catalog="system" width="128" height="110"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="eye" catalog="system" width="128" height="81"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="newspaper" catalog="system" width="128" height="108"/>

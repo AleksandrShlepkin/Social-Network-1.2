@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController {
         
     }
     let config = Realm.Configuration(schemaVersion: 1)
-    lazy var realm = try! Realm(configuration: config)
+//    lazy var realm = try! Realm(configuration: config)
     
     @IBOutlet weak var nameProfile: UILabel!
     @IBOutlet weak var photoProfile: UIImageView!
@@ -63,14 +63,14 @@ class ProfileViewController: UIViewController {
             }
 
         }
-        do {
-            self.realm.beginWrite()
-            self.realm.add(profileFriends!)
-            try self.realm.commitWrite()
-            print(realm.configuration.fileURL as Any)
-        } catch {
-            print(error)
-        }
+//        do {
+//            self.realm.beginWrite()
+//            self.realm.add(profileFriends!)
+//            try self.realm.commitWrite()
+//            print(realm.configuration.fileURL as Any)
+//        } catch {
+//            print(error)
+//        }
         
         
         nameProfile.text = " \( profileFriends?.firstName ?? "") \(profileFriends?.lastName ?? "")"
@@ -80,18 +80,17 @@ class ProfileViewController: UIViewController {
     
 
 }
-//extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return profilePhoto?.photoID?.count ?? 0 
-//        
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "ProfileCollectionViewCell", for: indexPath) as! ProfileCollectionViewCell
-//        cell.profilePhoto.sd_setImage(with: URL(string: profilePhoto?.photoID ?? ""), placeholderImage: UIImage())
-//        return cell
-//    }
-//
-//
-//}
+extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+     return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "ProfileCollectionViewCell", for: indexPath) as! ProfileCollectionViewCell
+        cell.profilePhoto.sd_setImage(with: URL(string: profilePhoto?.photoID ?? ""), placeholderImage: UIImage())
+        return cell
+    }
+
+
+}

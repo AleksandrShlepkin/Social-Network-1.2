@@ -12,16 +12,15 @@ class FriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var secondNameLabel: UILabel!
     @IBOutlet weak var labelFriends: UILabel!
     @IBOutlet weak var imageFriend: UIImageView!
+    @IBOutlet weak var onlineButton: UIButton!
+    @IBOutlet weak var onlineLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

@@ -10,87 +10,59 @@ import UIKit
 import RealmSwift
 import Firebase
 
-class FriendsViewController: UIViewController {
+class FriendsViewController: UIViewController  {
     
-
-    
-    private var apiservice = APIService()
-    var friends: [FriendsModel] = []
+    private var apiservice = FriendsAPI()
+    var friends: [ItemFriends] = []
     var user: RealmService?
     var token: NotificationToken?
     
-    
-    
-    @IBOutlet weak var FriendTableView: UITableView! {
+    @IBOutlet weak var FriendTableView: UITableView!
         
-        didSet {
-            FriendTableView.delegate = self
-            FriendTableView.dataSource = self
-            FriendTableView.register(UITableViewCell.self, forCellReuseIdentifier: "FriendTableView")
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let group = DispatchGroup()
-        group.enter()
-        apiservice.getFriend{ [weak self] users in
-            guard let self = self else { return }
-            self.friends = users
-            group.leave()
-        }
+        FriendTableView.delegate = self
+        FriendTableView.dataSource = self
+        FriendTableView.register(UITableViewCell.self, forCellReuseIdentifier: "FriendTableView")
         
-        group.notify(queue: .main) { [weak self] in
+        apiservice.getFriends { [weak self] user in
             guard let self = self else { return }
+            
+            self.friends = user!.response.items
+            
             self.FriendTableView.reloadData()
+            
         }
-        
-        let friend = user?.realm.objects(FriendsModel.self)
-        
-        user?.realm.add(friends)
-        user?.realm.beginWrite()
-        try? user?.realm.commitWrite()
-        self.token = friend?.observe{ (changes: RealmCollectionChange) in
-            switch changes {
-            case .initial(let results):
-                print(results)
-            case let .update(results ,deletions, insertions, modifications):
-                print(results, deletions, insertions, modifications)
-            case .error(let error):
-                print(error)
-            }
-        }
-    }
+}
 }
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friends.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = FriendTableView.dequeueReusableCell(withIdentifier: "FriendsTableViewCell", for: indexPath) as! FriendsTableViewCell
-        let user = friends[indexPath.row]
-        cell.labelFriends.text = user.firstName ?? ""
-        cell.secondNameLabel.text = user.lastName ?? ""
-        cell.imageView?.sd_setImage(with: URL(string: user.photo ?? ""), placeholderImage: UIImage())
+        let cell = FriendTableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendsTableViewCell
         
-//        cell.textLabel?.text = "\(user.firstName ?? "") \(user.lastName ?? "")"
-//        cell.imageView?.sd_setImage(with: URL(string: user.photo ?? "" ), placeholderImage: UIImage())
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let user = friends[indexPath.row]
-        performSegue(withIdentifier: "goToProfile", sender: Any?.self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToProfile" {
-            let vc = segue.destination as! ProfileViewController
-            guard let indexPath = FriendTableView.indexPathForSelectedRow else { return }
-            let user = friends[indexPath.row]
-            vc.profileFriends = user
+        let users = friends[indexPath.row]
+        
+        cell.labelFriends.text = users.firstName
+        cell.imageFriend.sd_setImage(with: URL(string: users.photo100), placeholderImage: UIImage())
+        
+        if users.online == 0 {
+            cell.onlineButton.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            cell.onlineLabel.text = "Offline"
+        } else {
+            cell.onlineButton.tintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+                cell.onlineLabel.text = "Online"
         }
+        
+        return cell
+        
     }
+    
+    
     
 }

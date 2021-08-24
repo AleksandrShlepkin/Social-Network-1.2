@@ -284,19 +284,3 @@ struct OnlineInfo: Codable {
     }
 }
 
-enum TypeEnumPhoto: String, Codable {
-    case photo = "photo"
-    case link = "link"
-    case video = "video"
-    case audio = "audio"
-//    case m = "m"
-//    case o = "o"
-//    case p = "p"
-//    case q = "q"
-//    case r = "r"
-//    case s = "s"
-//    case w = "w"
-//    case x = "x"
-//    case y = "y"
-//    case z = "z"
-}

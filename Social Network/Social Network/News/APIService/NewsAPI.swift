@@ -73,8 +73,7 @@ class NewsAPI {
             DispatchQueue.global().async(group: dispatch) {
                 for (index, groups) in JSONGroupsArray.enumerated() {
                     do {
-                        let decodGroup = try decoder.decode(Group.self
-                                                            , from: groups.rawData())
+                        let decodGroup = try decoder.decode(Group.self, from: groups.rawData())
                         groupArray.append(decodGroup)
                     } catch {
                         print("\(index) \(error)")
