@@ -24,9 +24,9 @@ class ProfileViewController: UIViewController {
         let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         let save = UIAlertAction(title: "Добавить", style: .default, handler: nil)
         
-        let friendAdd = FireBaseFriendsModel.init(id: profileFriends?.userID ?? "")
-        let friendRef = self.ref.child(Session.shared.userID).child(profileFriends?.userID ?? "")
-        friendRef.setValue(friendAdd.toAnyObject())
+//        let friendAdd = FireBaseFriendsModel.init(id: profileFriends?.userID ?? "")
+//        let friendRef = self.ref.child(Session.shared.userID).child(profileFriends?.userID ?? "")
+//        friendRef.setValue(friendAdd.toAnyObject())
         
         alert.addAction(cancel)
         alert.addAction(save)
@@ -40,9 +40,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var photoProfile: UIImageView!
     @IBOutlet var profileView: UIView!
     private var apiservice = APIService()
-    var profileFriends: FriendsModel?
+//    var profileFriends: FriendsModel?
     var profilePhoto: PhotoModel?
-    var realmService: RealmService?
+//    var realmService: RealmService?
     var token: NotificationToken?
 
     override func viewDidLoad() {
@@ -51,35 +51,16 @@ class ProfileViewController: UIViewController {
         
         
 
-        let friendProfile = realmService?.realm.objects(FriendsModel.self)
-        self.token = friendProfile?.observe{ (changes: RealmCollectionChange) in
-            switch changes {
-            case .initial(let results):
-                print(results)
-            case let .update(results ,deletions, insertions, modifications ):
-                print(results, deletions, insertions, modifications)
-            case .error(let error):
-                print(error)
-            }
-
+      
         }
-//        do {
-//            self.realm.beginWrite()
-//            self.realm.add(profileFriends!)
-//            try self.realm.commitWrite()
-//            print(realm.configuration.fileURL as Any)
-//        } catch {
-//            print(error)
-//        }
+//
         
         
-        nameProfile.text = " \( profileFriends?.firstName ?? "") \(profileFriends?.lastName ?? "")"
-        photoProfile.sd_setImage(with: URL(string: profileFriends?.photo ?? ""), placeholderImage: UIImage())
-        
+      
     }
     
 
-}
+
 extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

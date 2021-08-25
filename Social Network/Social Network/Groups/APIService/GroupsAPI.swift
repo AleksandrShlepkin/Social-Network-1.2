@@ -1,8 +1,8 @@
 //
-//  FriendsAPI.swift
+//  GroupsAPI.swift
 //  Social Network
 //
-//  Created by Alex on 23.08.2021.
+//  Created by Alex on 24.08.2021.
 //
 
 import Foundation
@@ -10,24 +10,22 @@ import Alamofire
 import SwiftyJSON
 
 
-class FriendsAPI {
+class GroupsAPI {
     let baseURL = "https://api.vk.com/method"
     let token = Session.shared.token
     let userID = Session.shared.userID
     let version = "5.138"
     
-    
-    func getFriends(completion: @escaping (FriendsCodable?) -> ()) {
+    func getGroups(complection: @escaping (GroupsCodable) -> () ){
         
-        let method = "/friends.get"
+        let method = "/groups.get"
         let parametrs: Parameters = [
             "user_id": Session.shared.userID,
-            "fields": ["photo_100", "online"],
-            "count": 72,
+            "extended": 1,
+            "count": 50,
             "access_token": Session.shared.token,
             "v": version
         ]
-        
         let url = baseURL + method
         
         AF.request(url, method: .get, parameters: parametrs).responseData { response in
@@ -36,25 +34,27 @@ class FriendsAPI {
             let json = JSON(data)
             let dispatch = DispatchGroup()
             
-            let JSONItemsArray = json["response"]["items"].arrayValue
+            let JSONItemArray = json["response"]["items"].arrayValue
             
-            var itemsArray:[ItemFriends] = []
+            var itemsArray: [ItemGroups] = []
             
-            DispatchQueue.global().async(group: dispatch) { for (index, items) in JSONItemsArray.enumerated() {
+            DispatchQueue.global().async(group: dispatch) { for (index, items) in JSONItemArray.enumerated() {
                 do{
-                    let decodItem = try decoder.decode(ItemFriends.self, from: items.rawData())
+                    let decodItem = try decoder.decode(ItemGroups.self, from: items.rawData())
                     itemsArray.append(decodItem)
-                    print(itemsArray)
                 } catch {
                     print("\(index) \(error)")
                 }
             }
+            
             }
             dispatch.notify(queue: DispatchQueue.main) {
-                let response = ResponseFriends(count: 72, items: itemsArray)
-                let feed = FriendsCodable(response: response)
-                completion(feed)
+                let response = ResponseGroups(count: 50, items: itemsArray)
+                let feed = GroupsCodable(response: response)
+                complection(feed)
             }
+            
         }
     }
+    
 }

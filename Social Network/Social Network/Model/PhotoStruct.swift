@@ -9,10 +9,9 @@ import Foundation
 import RealmSwift
 import DynamicJSON
 
-var idFriend: FriendsModel?
 
 class PhotoModel: BaseModel {
-    @objc dynamic var id = idFriend?.userID
+//    @objc dynamic var id = idFriend?.userID
     @objc dynamic var photoID: String?
     @objc dynamic var photo100: String?
     
