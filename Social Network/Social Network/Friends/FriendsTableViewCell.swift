@@ -9,7 +9,7 @@ import UIKit
 
 class FriendsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var secondNameLabel: UILabel!
+    @IBOutlet weak var bDateLabel: UILabel!
     @IBOutlet weak var labelFriends: UILabel!
     @IBOutlet weak var imageFriend: UIImageView!
     @IBOutlet weak var onlineButton: UIButton!

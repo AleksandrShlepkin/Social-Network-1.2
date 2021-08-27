@@ -22,7 +22,7 @@ class FriendsAPI {
         let method = "/friends.get"
         let parametrs: Parameters = [
             "user_id": Session.shared.userID,
-            "fields": ["photo_100", "online"],
+            "fields": ["photo_100", "online", "bdate"],
             "count": 72,
             "access_token": Session.shared.token,
             "v": version
@@ -32,6 +32,7 @@ class FriendsAPI {
         
         AF.request(url, method: .get, parameters: parametrs).responseData { response in
             guard let data = response.data else { return }
+            print(data.prettyJSON as Any)
             let decoder = JSONDecoder()
             let json = JSON(data)
             let dispatch = DispatchGroup()

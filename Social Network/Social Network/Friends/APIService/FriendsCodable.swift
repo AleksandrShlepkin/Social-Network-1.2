@@ -26,6 +26,7 @@ struct ItemFriends: Codable {
     let firstName: String
     let lists: [Int]?
     let deactivated: String?
+    let bdate: String?
 
     enum CodingKeys: String, CodingKey {
         case canAccessClosed = "can_access_closed"
@@ -36,5 +37,6 @@ struct ItemFriends: Codable {
         case isClosed = "is_closed"
         case firstName = "first_name"
         case lists, deactivated
+        case bdate = "bdate"
     }
 }

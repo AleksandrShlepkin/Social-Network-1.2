@@ -31,6 +31,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         FriendsTableView.delegate = self
         FriendsTableView.dataSource = self
         FriendsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "FriendTableView")
@@ -74,7 +75,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.labelFriends.text = "\(friendsSearch.firstName) \(friendsSearch.lastName ?? "")"
         cell.imageFriend.sd_setImage(with: URL(string: friendsSearch.photo100), placeholderImage: UIImage())
-        
+        cell.bDateLabel.text = "День рождения \(friendsSearch.bdate ?? "")"
         
         if friendsSearch.online == 0 {
             cell.onlineButton.tintColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
@@ -105,3 +106,4 @@ extension FriendsViewController: UISearchResultsUpdating {
         FriendsTableView.reloadData()
     }
 }
+

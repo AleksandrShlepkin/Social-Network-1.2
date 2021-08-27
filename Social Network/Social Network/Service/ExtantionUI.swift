@@ -67,6 +67,7 @@ class MainTabViewController: UITabBarController {
     }
 }
 
+// MARK: Расширение для TabBar для плавной анимации перехода
 extension MainTabViewController: UITabBarControllerDelegate  {
     
        @objc func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

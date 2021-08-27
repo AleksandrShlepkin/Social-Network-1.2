@@ -25,6 +25,7 @@ final class APIService {
         
         let param: Parameters =
             [
+                "owner_id": Session.shared.userID,
                 "album_id": "profile",
                 "rev": 1,
                 "count": 30,
@@ -34,7 +35,7 @@ final class APIService {
         let url = baseURl + method
         AF.request(url, method: .get, parameters: param).responseData { response in
             guard let data = response.data else { return}
-//            print(data.prettyJSON as Any)
+            print(data.prettyJSON as Any)
             guard let items = JSON(data).response.item.array else { return }
             let photos = items.map { PhotoModel(data: $0)}
             
