@@ -11,5 +11,6 @@ final class Session {
     static var shared = Session()
     private init (){}
     var token = ""
-    var userID = ""
+    var userID = "alexandr_gennadevich"
+    var clientID: Int = 0
 }

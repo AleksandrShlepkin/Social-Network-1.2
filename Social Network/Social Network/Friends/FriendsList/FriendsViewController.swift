@@ -75,7 +75,11 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.labelFriends.text = "\(friendsSearch.firstName) \(friendsSearch.lastName ?? "")"
         cell.imageFriend.sd_setImage(with: URL(string: friendsSearch.photo100), placeholderImage: UIImage())
-        cell.bDateLabel.text = "День рождения \(friendsSearch.bdate ?? "")"
+        if friendsSearch.bdate == nil {
+            cell.bDateLabel.text = ""
+        } else {
+            cell.bDateLabel.text = "День рождения \(friendsSearch.bdate ?? "")"
+        }
         
         if friendsSearch.online == 0 {
             cell.onlineButton.tintColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
@@ -84,11 +88,18 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.onlineButton.tintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.7039777729)
                 cell.onlineLabel.text = "Online"
         }
-        
         return cell
-        
     }
     
+    //MARK: Переход на профайл
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToProfile" {
+            let vc = segue.destination as! ProfileFriendsViewController
+            guard let indexPath = FriendsTableView.indexPathForSelectedRow else { return }
+            let userProfile = friends[indexPath.row]
+            vc.friends = [userProfile]
+        }
+    }
     
     
 }

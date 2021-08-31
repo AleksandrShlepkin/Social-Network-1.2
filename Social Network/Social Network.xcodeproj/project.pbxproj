@@ -10,7 +10,6 @@
 		045C4190D553AD0212A2EC65 /* Pods_Social_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43AA5C574DF2480CE8B590E8 /* Pods_Social_Network.framework */; };
 		392295FD656B04E7C7489FED /* Pods_Social_NetworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 323AC0570756B3D4B5F37FB6 /* Pods_Social_NetworkTests.framework */; };
 		B124AE9D5CF74505E1DF22A6 /* Pods_Social_Network_Social_NetworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6DCA7E75AA0A1C813530DB /* Pods_Social_Network_Social_NetworkUITests.framework */; };
-		FA36E544268E14C7009EFBF2 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E543268E14C7009EFBF2 /* PhotoViewController.swift */; };
 		FA36E549268E19C0009EFBF2 /* PhotoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */; };
 		FA48FD5E2693538B007B1D37 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48FD5D2693538B007B1D37 /* BaseModel.swift */; };
 		FA50C532268DDE3000B3CC59 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */; };
@@ -25,6 +24,10 @@
 		FA90D1EB26D58879005FE904 /* GroupsCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90D1EA26D58879005FE904 /* GroupsCodable.swift */; };
 		FA90D1F026D588C0005FE904 /* GroupsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90D1EF26D588C0005FE904 /* GroupsAPI.swift */; };
 		FA90D20226D92333005FE904 /* FriendsAPIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90D20126D92333005FE904 /* FriendsAPIOperation.swift */; };
+		FA90D29326DBBDDA005FE904 /* PhotoCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90D29226DBBDDA005FE904 /* PhotoCodable.swift */; };
+		FA90D29826DC1D9E005FE904 /* ProfileFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90D29726DC1D9E005FE904 /* ProfileFriendsViewController.swift */; };
+		FA90D29D26DC1DDE005FE904 /* PhotoFriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90D29C26DC1DDE005FE904 /* PhotoFriendsCollectionViewCell.swift */; };
+		FA90D2A826DD71C0005FE904 /* PhotoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90D2A726DD71C0005FE904 /* PhotoAPI.swift */; };
 		FA94C4AF26D26E3E00F6B44A /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94C4AE26D26E3E00F6B44A /* NewsAPI.swift */; };
 		FA993D4426A1C3C3009872E0 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */; };
 		FAA07B2D269EB4E00038031E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */; };
@@ -36,7 +39,6 @@
 		FAD63A9226B8315A001302FD /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD63A9026B8315A001302FD /* GroupsTableViewCell.swift */; };
 		FAD63A9326B8315A001302FD /* GroupsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD63A9126B8315A001302FD /* GroupsTableViewCell.xib */; };
 		FADF645526849600005DF975 /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF645426849600005DF975 /* Sessions.swift */; };
-		FADFC566268E28B90045B7C6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */; };
 		FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A552683D01700209A3E /* AppDelegate.swift */; };
 		FAF20A582683D01700209A3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A572683D01700209A3E /* SceneDelegate.swift */; };
 		FAF20A5A2683D01700209A3E /* APIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF20A592683D01700209A3E /* APIViewController.swift */; };
@@ -74,7 +76,6 @@
 		6C6DCA7E75AA0A1C813530DB /* Pods_Social_Network_Social_NetworkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Social_Network_Social_NetworkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06D632AF68A53CB2A612303 /* Pods-Social Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Network.debug.xcconfig"; path = "Target Support Files/Pods-Social Network/Pods-Social Network.debug.xcconfig"; sourceTree = "<group>"; };
 		A0DE53972BB11C4E5A6E2614 /* Pods-Social Network-Social NetworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Network-Social NetworkUITests.release.xcconfig"; path = "Target Support Files/Pods-Social Network-Social NetworkUITests/Pods-Social Network-Social NetworkUITests.release.xcconfig"; sourceTree = "<group>"; };
-		FA36E543268E14C7009EFBF2 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStruct.swift; sourceTree = "<group>"; };
 		FA48FD5D2693538B007B1D37 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +91,10 @@
 		FA90D1EA26D58879005FE904 /* GroupsCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCodable.swift; sourceTree = "<group>"; };
 		FA90D1EF26D588C0005FE904 /* GroupsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsAPI.swift; sourceTree = "<group>"; };
 		FA90D20126D92333005FE904 /* FriendsAPIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAPIOperation.swift; sourceTree = "<group>"; };
+		FA90D29226DBBDDA005FE904 /* PhotoCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCodable.swift; sourceTree = "<group>"; };
+		FA90D29726DC1D9E005FE904 /* ProfileFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsViewController.swift; sourceTree = "<group>"; };
+		FA90D29C26DC1DDE005FE904 /* PhotoFriendsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFriendsCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA90D2A726DD71C0005FE904 /* PhotoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAPI.swift; sourceTree = "<group>"; };
 		FA94C4AE26D26E3E00F6B44A /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		FA993D4326A1C3C3009872E0 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FAA07B2C269EB4E00038031E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -101,7 +106,6 @@
 		FAD63A9026B8315A001302FD /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		FAD63A9126B8315A001302FD /* GroupsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsTableViewCell.xib; sourceTree = "<group>"; };
 		FADF645426849600005DF975 /* Sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
-		FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAF20A522683D01700209A3E /* Social Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF20A552683D01700209A3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF20A572683D01700209A3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,11 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				FA90D1C626D3F7DA005FE904 /* APIService */,
+				FA90D28826DBBC6B005FE904 /* FriendsList */,
 				FA48FD4C269033A5007B1D37 /* Profile */,
-				FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */,
-				FAB2B93426A99DCB00565E45 /* FriendsTableViewCell.swift */,
-				FA36E543268E14C7009EFBF2 /* PhotoViewController.swift */,
-				FADFC565268E28B90045B7C6 /* PhotoCollectionViewCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -198,6 +199,8 @@
 		FA48FD4C269033A5007B1D37 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FA90D29726DC1D9E005FE904 /* ProfileFriendsViewController.swift */,
+				FA90D29C26DC1DDE005FE904 /* PhotoFriendsCollectionViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -225,6 +228,8 @@
 				FA90D1C726D3F7F9005FE904 /* FriendsAPI.swift */,
 				FA90D1CF26D4C1FB005FE904 /* FriendsCodable.swift */,
 				FA90D20126D92333005FE904 /* FriendsAPIOperation.swift */,
+				FA90D29226DBBDDA005FE904 /* PhotoCodable.swift */,
+				FA90D2A726DD71C0005FE904 /* PhotoAPI.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -236,6 +241,15 @@
 				FA90D1EF26D588C0005FE904 /* GroupsAPI.swift */,
 			);
 			path = APIService;
+			sourceTree = "<group>";
+		};
+		FA90D28826DBBC6B005FE904 /* FriendsList */ = {
+			isa = PBXGroup;
+			children = (
+				FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */,
+				FAB2B93426A99DCB00565E45 /* FriendsTableViewCell.swift */,
+			);
+			path = FriendsList;
 			sourceTree = "<group>";
 		};
 		FA94C4AD26D26E1E00F6B44A /* APIService */ = {
@@ -609,6 +623,7 @@
 				FA993D4426A1C3C3009872E0 /* RegistrationViewController.swift in Sources */,
 				FAB2B93526A99DCB00565E45 /* FriendsTableViewCell.swift in Sources */,
 				FAB8340A26C468590022A8B3 /* ExtantionUI.swift in Sources */,
+				FA90D29326DBBDDA005FE904 /* PhotoCodable.swift in Sources */,
 				FA90D20226D92333005FE904 /* FriendsAPIOperation.swift in Sources */,
 				FAF20A5A2683D01700209A3E /* APIViewController.swift in Sources */,
 				FAD63A9226B8315A001302FD /* GroupsTableViewCell.swift in Sources */,
@@ -616,22 +631,23 @@
 				FAF20A562683D01700209A3E /* AppDelegate.swift in Sources */,
 				FADF645526849600005DF975 /* Sessions.swift in Sources */,
 				FAB2B91426A70B5200565E45 /* GroupProfileViewController.swift in Sources */,
-				FA36E544268E14C7009EFBF2 /* PhotoViewController.swift in Sources */,
 				FA712AF3268DED61004A7295 /* GroupsViewController.swift in Sources */,
 				FA895F0326C06078009954E7 /* NewsCodableTableViewCell.swift in Sources */,
+				FA90D29D26DC1DDE005FE904 /* PhotoFriendsCollectionViewCell.swift in Sources */,
 				FAB8342726CD08450022A8B3 /* NewsSecond.swift in Sources */,
 				FAF20A582683D01700209A3E /* SceneDelegate.swift in Sources */,
+				FA90D29826DC1D9E005FE904 /* ProfileFriendsViewController.swift in Sources */,
 				FA50C532268DDE3000B3CC59 /* FriendsViewController.swift in Sources */,
 				FA94C4AF26D26E3E00F6B44A /* NewsAPI.swift in Sources */,
 				FA565BFF2684A6ED000B4F96 /* APIService.swift in Sources */,
 				FA48FD5E2693538B007B1D37 /* BaseModel.swift in Sources */,
 				FA36E549268E19C0009EFBF2 /* PhotoStruct.swift in Sources */,
-				FADFC566268E28B90045B7C6 /* PhotoCollectionViewCell.swift in Sources */,
 				FA90D1C826D3F7F9005FE904 /* FriendsAPI.swift in Sources */,
 				FA90D1D026D4C1FB005FE904 /* FriendsCodable.swift in Sources */,
 				FA90D1F026D588C0005FE904 /* GroupsAPI.swift in Sources */,
 				FAF20A602683D01700209A3E /* Social_Network.xcdatamodeld in Sources */,
 				FA565C052684B22D000B4F96 /* Extention.swift in Sources */,
+				FA90D2A826DD71C0005FE904 /* PhotoAPI.swift in Sources */,
 				FA895EF626C05DAC009954E7 /* NewsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
