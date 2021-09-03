@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import Alamofire
 
 class ProfileFriendsViewController: UIViewController {
 
@@ -39,10 +40,10 @@ class ProfileFriendsViewController: UIViewController {
            
         }
 
-        mainPhotoProfile.sd_setImage(with: URL(string: friends[0].photo100), placeholderImage: UIImage())
-        profileName.text = "\(friends[0].firstName) \(friends[0].lastName ?? "")"
-        
-        if friends[0].bdate == nil {
+        mainPhotoProfile.sd_setImage(with: URL(string: friends?[0].photo100 ?? ""), placeholderImage: UIImage())
+        profileName.text = "\(friends?[0].firstName ?? "") \(friends?[0].lastName ?? "")"
+
+        if friends?[0].bdate == nil {
             profileBDate.text = ""
         } else {
         profileBDate.text = "День рождения \(friends[0].bdate ?? "")"
@@ -61,8 +62,12 @@ extension ProfileFriendsViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionPhotoProfile.dequeueReusableCell(withReuseIdentifier: "collectionPhoto", for: indexPath) as! PhotoFriendsCollectionViewCell
-        cell.collectionPhoto.sd_setImage(with: URL(string: photos[0].sizes[0].url), placeholderImage: UIImage())
-        return cell
+        AF.request(photos[indexPath.row].sizes[0].url, method: .get).responseImage { response in
+            guard let image = response.value else { return }
+            cell.collectionPhoto.image = image
+        }
+        
+                return cell
     }
     
     

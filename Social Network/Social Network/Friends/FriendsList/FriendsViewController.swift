@@ -12,6 +12,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     
     private var apiservice = FriendsAPI()
     var friends: [ItemFriends] = []
+    var photos: [ItemPhoto] = []
     
     
     //MARK: Default Search Bar
@@ -28,7 +29,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var FriendsTableView: UITableView!
     
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +50,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         searchBar.searchBar.placeholder = "Поиск"
         navigationItem.searchController = searchBar
         definesPresentationContext = true
-}
+    }
 }
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,7 +71,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         if isFiltering {
             friendsSearch = filterFriendsArray[indexPath.row]
         } else {
-           friendsSearch  = friends[indexPath.row]
+            friendsSearch  = friends[indexPath.row]
         }
         
         cell.labelFriends.text = "\(friendsSearch.firstName) \(friendsSearch.lastName ?? "")"
@@ -86,12 +87,13 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.onlineLabel.text = "Offline"
         } else {
             cell.onlineButton.tintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.7039777729)
-                cell.onlineLabel.text = "Online"
+            cell.onlineLabel.text = "Online"
         }
         return cell
     }
     
     //MARK: Переход на профайл
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToProfile" {
             let vc = segue.destination as! ProfileFriendsViewController
@@ -100,6 +102,11 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             vc.friends = [userProfile]
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
+    
     
     
 }

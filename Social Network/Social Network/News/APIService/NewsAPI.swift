@@ -27,14 +27,14 @@ class NewsAPI {
                 "filters" : "post",
                 "count" : 50,
                 "access_token": Session.shared.token,
-                "v": version
+                "v": "5.131"
             ]
         let url = baseURl + method
         
         AF.request(url, method: .get, parameters: parametrs).responseData { respons in
                             
             guard let data = respons.data else { return }
-//            print(data.prettyJSON)
+            print(data.prettyJSON)
 
             let decoder = JSONDecoder()
             let json = JSON(data)

@@ -20,8 +20,6 @@ class PhotoAPI {
         let method = "/photos.get"
         let parametrs: Parameters =
             [
-//                "client_id": Session.shared.clientID,
-//                "user_id": Session.shared.userID,
                 "album_id": "profile",
                 "rev": 1,
                 "count": 30,

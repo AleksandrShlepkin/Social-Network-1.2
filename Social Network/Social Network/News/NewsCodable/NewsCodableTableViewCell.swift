@@ -82,15 +82,18 @@ class NewsCodableTableViewCell: UITableViewCell {
                     
                 case "link" :
                     if let photoNews = firstAttachment.photo?.size?[0].url {
+                        
                         AF.request(photoNews, method: .get).responseImage { response in
                             self.mainImageNews.sd_setImage(with: URL(string: "\(photoNews)"), placeholderImage: UIImage())
-//                            guard let image = response.value else { return }
-//                            self.mainImageNews.image = image
+                            guard let image = response.value else { return }
+                            self.mainImageNews.image = image
                         }
                     }
 
                 case "photo" :
                     if let photoNews = firstAttachment.photo?.size?[0].url {
+                       
+                        
                         AF.request(photoNews, method: .get).responseImage { response in
                            // guard let image = response.value else { return }
                             self.mainImageNews.sd_setImage(with: URL(string: "\(photoNews)"), placeholderImage: UIImage())

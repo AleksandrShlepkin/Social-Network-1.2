@@ -30,11 +30,12 @@ struct ItemPhoto: Codable {
     let ownerID: Int
     let long: Double?
 
+
     enum CodingKeys: String, CodingKey {
         case albumID = "album_id"
         case sizes
         case postID = "post_id"
-        case id, date, text, lat
+        case date, id, text, lat
         case hasTags = "has_tags"
         case ownerID = "owner_id"
         case long

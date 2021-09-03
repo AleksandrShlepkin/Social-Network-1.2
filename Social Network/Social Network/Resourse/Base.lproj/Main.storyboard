@@ -211,7 +211,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="GroupsTableView" destination="H7N-g8-bVF" id="zKZ-37-sN6"/>
-                        <segue destination="iai-b6-JIc" kind="show" identifier="goToGroup" id="Jkg-IJ-E7l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22P-kp-hJu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -221,9 +220,9 @@
         <!--Group Profile View Controller-->
         <scene sceneID="Rdl-V7-XDr">
             <objects>
-                <viewController storyboardIdentifier="GroupProfileViewController" id="iai-b6-JIc" customClass="GroupProfileViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="profileFriends" storyboardIdentifier="profileFriends" id="iai-b6-JIc" customClass="GroupProfileViewController" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oqa-Ux-Fgj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ghE-gB-yOB">
@@ -445,7 +444,7 @@
                                             <outlet property="labelFriends" destination="poS-bq-Jze" id="CBX-yT-KPn"/>
                                             <outlet property="onlineButton" destination="vXs-bB-gRx" id="JGh-2x-uop"/>
                                             <outlet property="onlineLabel" destination="kfH-WQ-bxD" id="Kru-8D-MpT"/>
-                                            <segue destination="J32-5h-LQB" kind="show" identifier="goToProfile" id="zjt-ka-vqs"/>
+                                            <segue destination="J32-5h-LQB" kind="show" identifier="goToProfile" id="Gie-zK-7xq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -489,11 +488,11 @@
                                 <rect key="frame" x="0.0" y="384" width="414" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Opt-5m-zIi">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Opt-5m-zIi">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qMG-uY-6u9">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MWT-5n-tO5">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -501,14 +500,15 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionPhoto" id="5XV-LD-s4h" customClass="PhotoFriendsCollectionViewCell" customModule="Social_Network" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <rect key="frame" x="0.0" y="-4.5" width="138" height="139"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jZz-O7-IDJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="138" height="139"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QO3-1G-Dbg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="138" height="139"/>
+                                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
@@ -518,6 +518,7 @@
                                                         <constraint firstItem="QO3-1G-Dbg" firstAttribute="top" secondItem="jZz-O7-IDJ" secondAttribute="top" id="eCr-zu-4JU"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
+                                                <size key="customSize" width="138" height="139"/>
                                                 <connections>
                                                     <outlet property="PhotoFriendsList" destination="jZz-O7-IDJ" id="Ap4-ap-ygU"/>
                                                     <outlet property="collectionPhoto" destination="QO3-1G-Dbg" id="Mfq-Uz-3MW"/>
@@ -1067,21 +1068,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kef-Kv-UuS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3969.5652173913045" y="2159.5982142857142"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="LhX-mR-vTd">
-            <objects>
-                <viewController id="s9G-mr-faM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rPt-55-2dk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="WVY-Ub-SFL"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SD5-YI-ys1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5404" y="-1294"/>
         </scene>
     </scenes>
     <resources>

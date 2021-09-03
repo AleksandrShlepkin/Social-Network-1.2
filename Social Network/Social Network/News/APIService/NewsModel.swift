@@ -129,7 +129,7 @@ struct Photo: Codable {
         case ownerID = "owner_id"
         case accessKey = "access_key"
         case postID = "post_id"
-        case size
+        case size = "sizes"
     }
 }
 
@@ -143,7 +143,7 @@ struct Size: Codable {
     enum CodingKeys: String, CodingKey {
         case width, height
         case type
-        case url
+        case url = "url"
         case withPadding = "with_padding"
     }
   
