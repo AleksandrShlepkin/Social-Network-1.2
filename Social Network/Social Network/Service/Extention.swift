@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+//MARK: Расшерение для печати JSON
 extension Data {
     var prettyJSON: NSString? {
         guard let object = try? JSONSerialization.jsonObject(with: self, options: []),
@@ -16,5 +16,20 @@ extension Data {
             return nil
         }
         return prettyPrintedString
+    }
+}
+
+
+//MARK: Расшерение для Даты и Времени
+extension Double {
+    func getDateStringFromUTC() -> String {
+        let date = Date(timeIntervalSince1970: self)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        
+        return dateFormatter.string(from: date)
     }
 }

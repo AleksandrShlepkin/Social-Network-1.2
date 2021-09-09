@@ -43,11 +43,11 @@ class ProfileFriendsViewController: UIViewController {
         mainPhotoProfile.sd_setImage(with: URL(string: friends?[0].photo100 ?? ""), placeholderImage: UIImage())
         profileName.text = "\(friends?[0].firstName ?? "") \(friends?[0].lastName ?? "")"
 
-        if friends?[0].bdate == nil {
-            profileBDate.text = ""
-        } else {
-        profileBDate.text = "День рождения \(friends[0].bdate ?? "")"
-    }
+//        if friends?[0].bdate == nil {
+//            profileBDate.text = ""
+//        } else {
+//            profileBDate.text = "День рождения \(friends[0].bdate)"
+//    }
     }
     
 

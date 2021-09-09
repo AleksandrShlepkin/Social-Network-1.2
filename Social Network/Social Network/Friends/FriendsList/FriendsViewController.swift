@@ -13,6 +13,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     private var apiservice = FriendsAPI()
     var friends: [ItemFriends] = []
     var photos: [ItemPhoto] = []
+    private var apisevicePhoto = PhotoAPI()
     
     
     //MARK: Default Search Bar
@@ -43,6 +44,11 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
             self.friends = user!.response.items
             self.FriendsTableView.reloadData()
         }
+        apisevicePhoto.getPhoto { [weak self ] photo in
+            guard let self = self else { return }
+            self.photos = photo!.response.items
+            self.FriendsTableView.reloadData()
+        }
         
         //MARK: Search Bar Delegate
         searchBar.searchResultsUpdater = self
@@ -55,6 +61,8 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
+    
+   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
@@ -76,11 +84,6 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.labelFriends.text = "\(friendsSearch.firstName) \(friendsSearch.lastName ?? "")"
         cell.imageFriend.sd_setImage(with: URL(string: friendsSearch.photo100), placeholderImage: UIImage())
-        if friendsSearch.bdate == nil {
-            cell.bDateLabel.text = ""
-        } else {
-            cell.bDateLabel.text = "День рождения \(friendsSearch.bdate ?? "")"
-        }
         
         if friendsSearch.online == 0 {
             cell.onlineButton.tintColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
@@ -94,17 +97,14 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Переход на профайл
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToProfile" {
-            let vc = segue.destination as! ProfileFriendsViewController
-            guard let indexPath = FriendsTableView.indexPathForSelectedRow else { return }
-            let userProfile = friends[indexPath.row]
-            vc.friends = [userProfile]
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        let vc = storyboard?.instantiateViewController(withIdentifier: "goToProfile") as! ProfileFriendsViewController
+        guard let indexPath = FriendsTableView.indexPathForSelectedRow else { return }
+        let userProfile = friends[indexPath.row]
+        let userPhoto = photos[indexPath.row]
+        vc.friends = [userProfile]
+        vc.photos = [userPhoto]
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -124,4 +124,5 @@ extension FriendsViewController: UISearchResultsUpdating {
         FriendsTableView.reloadData()
     }
 }
+
 

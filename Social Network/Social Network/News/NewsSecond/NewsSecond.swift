@@ -38,7 +38,7 @@ class FirstCell: UITableViewCell {
             }
         }
         postData.text = postDateFunc?.getDateStringFromUTC()
-    
+        
     }
     
 }
@@ -47,14 +47,14 @@ class SecondCell: UITableViewCell {
     
     
     func configure(url: String? = nil) {
-
+        
         if  url == nil {
             mainPhotoNews.image = UIImage(named: "DefaultImage")
         } else {
             AF.request(url!, method: .get).responseImage { response in
                 guard let image = response.value else { return }
                 self.mainPhotoNews.image = image
-//                self.mainPhotoNews.sd_setImage(with: URL(string: "\(url)"), placeholderImage: UIImage())
+                
                 
             }
         }
@@ -78,15 +78,45 @@ class MainNewsViewController: UIViewController {
     private var feedItems: [Item] = []
     private var feedProfiles: [Profile] = []
     private var feedGroups: [Group] = []
-    let apiService = NewsAPI()
+    
+    var apiServise = NewsAPI()
+    
+    var isLoading: Bool = false
+    var nextFrom: String = ""
     
     @IBOutlet weak var mainTableView: UITableView!
+    let apiService = NewsAPI()
     
+    let refreshControllet = UIRefreshControl()
+    @objc func refresh(sender: AnyObject) {
+        let lastNews = self.feedItems.first?.date ?? Date().timeIntervalSince1970
+        apiService.getNews(startTime: lastNews + 1) { [weak self ] feed in
+            guard let self = self else { return }
+            self.refreshControllet.endRefreshing()
+            guard let items = feed?.response.items else { return }
+            guard let profiles = feed?.response.profiles else { return }
+            guard let groups = feed?.response.groups else { return }
+            
+            self.feedItems = items + self.feedItems
+            self.feedProfiles = profiles + self.feedProfiles
+            self.feedGroups = groups + self.feedGroups
+            
+            let indexSet = IndexSet(integersIn: 0..<items.count )
+            self.mainTableView.insertSections(indexSet, with: .automatic)
+            
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainTableView.delegate = self
         mainTableView.dataSource = self
+        mainTableView.prefetchDataSource = self
+        
+        refreshControllet.attributedTitle = NSAttributedString(string: "Щас будет что-то новенькое")
+        refreshControllet.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
+        mainTableView.addSubview(refreshControllet)
         
         
         apiService.getNews { [weak self] feed in
@@ -105,7 +135,6 @@ extension MainNewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let currentNews = feedItems[indexPath.section]
         switch indexPath.row {
         case 0:
             return firstCell(indexPath: indexPath)
@@ -130,7 +159,7 @@ extension MainNewsViewController: UITableViewDelegate, UITableViewDataSource {
         return 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return 4
+        return 4
     }
     
     
@@ -157,8 +186,7 @@ extension MainNewsViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = mainTableView.dequeueReusableCell(withIdentifier: "SecondCell", for: indexPath) as! SecondCell
         let currentItemsPhoto = feedItems[indexPath.section]
-        cell.mainPhotoNews.sd_setImage(with: URL(string: currentItemsPhoto.attachments?[0].photo?.size?[0].url ?? ""), placeholderImage: UIImage() )
-//        cell.configure(url: currentItemsPhoto.attachments?[0].photo?.size?[0].url)
+        cell.configure(url: currentItemsPhoto.attachments?[0].photo?.size?[0].url)
         
         return cell
         
@@ -176,14 +204,39 @@ extension MainNewsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = mainTableView.dequeueReusableCell(withIdentifier: "FourCell", for: indexPath) as! FourCell
         
         let currentItemsLike = feedItems[indexPath.section]
-        cell.comentsCount.text = "\(currentItemsLike.comments!.count)"
+        cell.comentsCount.text = "\(currentItemsLike.comments?.count ?? 0)"
         cell.likeCount.text = "\(currentItemsLike.likes.count)"
         cell.repostCount.text = "\(currentItemsLike.reposts.count)"
-        cell.viewsCount.text = "\(currentItemsLike.views!.count)"
+        cell.viewsCount.text = "\(currentItemsLike.views?.count ?? 0) "
         
         return cell
     }
     
-    
 }
 
+extension MainNewsViewController : UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        
+        guard let maxSection = indexPaths.map({ $0.section }).max() else { return }
+        
+        if maxSection > feedItems.count - 3, !isLoading {
+            
+            self.isLoading = true
+            
+            apiService.getNews(nextFrom: nextFrom) { [weak self] feed  in
+                guard let self = self else { return }
+                guard let nextFrom = feed?.response.nextFrom else { return }
+                self.nextFrom = nextFrom
+                guard let items = feed?.response.items else { return }
+                guard let profiles = feed?.response.profiles else { return }
+                guard let groups = feed?.response.groups else { return }
+                let indexSet = IndexSet(integersIn: self.feedItems.count ..< self.feedItems.count + items.count )
+                self.feedItems.append(contentsOf: items)
+                self.feedProfiles.append(contentsOf: profiles)
+                self.feedGroups.append(contentsOf: groups)
+                self.mainTableView.insertSections(indexSet, with: .automatic)
+                self.isLoading = false
+            }
+        }
+    }
+}

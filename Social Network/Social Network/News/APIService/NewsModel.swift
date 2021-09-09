@@ -21,11 +21,11 @@ struct Response: Codable {
         case items, groups, profiles
         case nextFrom = "next_from"
     }
-    init(items: [Item], groups: [Group], profiles: [Profile]){
+    init(items: [Item], groups: [Group], profiles: [Profile], nextFrom: String){
         self.items = items
         self.groups = groups
         self.profiles = profiles
-        self.nextFrom = ""
+        self.nextFrom = nextFrom
     }
 }
 

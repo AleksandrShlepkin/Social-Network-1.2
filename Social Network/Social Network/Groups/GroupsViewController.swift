@@ -49,13 +49,13 @@ extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "goToGroup", sender: Any?.self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToGroup" {
-            let vc = segue.destination as! GroupProfileViewController
-            guard let indexPath = GroupsTableView.indexPathForSelectedRow else {
-                return
-            }
-    }
-    
-}
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToGroup" {
+//            let vc = segue.destination as! GroupProfileViewController
+//            guard let indexPath = GroupsTableView.indexPathForSelectedRow else {
+//                return
+//            }
+//    }
+//    
+//}
 }

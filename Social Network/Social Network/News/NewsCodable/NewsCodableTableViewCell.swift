@@ -44,7 +44,7 @@ class NewsCodableTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-    func configure(item: Item, profile: Profile? = nil, group: Group? = nil) {
+    func configure(item: Item, profile: Profile? = nil, group: Group? = nil, index: Int) {
         
         if let group = group {
             profileName.text = group.name
@@ -71,20 +71,18 @@ class NewsCodableTableViewCell: UITableViewCell {
         mainTextNews.text = item.text
         dataNews.text = item.date.getDateStringFromUTC()
 
-            
+
         if item.attachments != nil {
             if let firstAttachment = item.attachments?[0] {
 
                 switch firstAttachment.type {
 
                 case "video":
-                    mainImageNews.image = UIImage(named: "DefaultImage")
+                    self.mainImageNews.image = UIImage(named: "DefaultImage")
                     
                 case "link" :
                     if let photoNews = firstAttachment.photo?.size?[0].url {
-                        
                         AF.request(photoNews, method: .get).responseImage { response in
-                            self.mainImageNews.sd_setImage(with: URL(string: "\(photoNews)"), placeholderImage: UIImage())
                             guard let image = response.value else { return }
                             self.mainImageNews.image = image
                         }
@@ -92,35 +90,21 @@ class NewsCodableTableViewCell: UITableViewCell {
 
                 case "photo" :
                     if let photoNews = firstAttachment.photo?.size?[0].url {
-                       
-                        
                         AF.request(photoNews, method: .get).responseImage { response in
-                           // guard let image = response.value else { return }
-                            self.mainImageNews.sd_setImage(with: URL(string: "\(photoNews)"), placeholderImage: UIImage())
-                                //UIImage(named: "DefaultImage")
+                            guard let image = response.value else { return }
+                            self.mainImageNews.image = image
                         }
                     }
 
                 default:
 
-                    mainImageNews.image = UIImage(named: "DefaultImage")
+                    self.mainImageNews.image = UIImage(named: "DefaultImage")
                 }
             }
         }
-
+        
     }
     
 }
 
-extension Double {
-    func getDateStringFromUTC() -> String {
-        let date = Date(timeIntervalSince1970: self)
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ru_RU")
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
-        
-        return dateFormatter.string(from: date)
-    }
-}
+
