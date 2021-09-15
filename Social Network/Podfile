@@ -25,6 +25,7 @@ pod 'SDWebImage'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'SwiftyJSON'
+pod 'TTTAttributedLabel'
 
 end
 

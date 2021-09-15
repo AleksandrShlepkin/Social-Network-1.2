@@ -10,6 +10,7 @@ import UIKit
 class NewsCodableViewController: UIViewController {
     
     let refreshControll = UIRefreshControl()
+//    var photoNewss: [PhotoNew] = []
     
     @IBOutlet weak var newsCodableTableView: UITableView!
     private var feedItems: [Item] = []
@@ -76,6 +77,9 @@ class NewsCodableViewController: UIViewController {
     
 }
 extension NewsCodableViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         feedItems.count
     }

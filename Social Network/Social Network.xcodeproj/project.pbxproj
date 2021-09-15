@@ -10,6 +10,7 @@
 		045C4190D553AD0212A2EC65 /* Pods_Social_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43AA5C574DF2480CE8B590E8 /* Pods_Social_Network.framework */; };
 		392295FD656B04E7C7489FED /* Pods_Social_NetworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 323AC0570756B3D4B5F37FB6 /* Pods_Social_NetworkTests.framework */; };
 		B124AE9D5CF74505E1DF22A6 /* Pods_Social_Network_Social_NetworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6DCA7E75AA0A1C813530DB /* Pods_Social_Network_Social_NetworkUITests.framework */; };
+		FA34FB7726ECABF800772517 /* NewsMainClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34FB7626ECABF800772517 /* NewsMainClass.swift */; };
 		FA36E549268E19C0009EFBF2 /* PhotoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */; };
 		FA48FD5E2693538B007B1D37 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48FD5D2693538B007B1D37 /* BaseModel.swift */; };
 		FA50C532268DDE3000B3CC59 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */; };
@@ -76,6 +77,7 @@
 		6C6DCA7E75AA0A1C813530DB /* Pods_Social_Network_Social_NetworkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Social_Network_Social_NetworkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06D632AF68A53CB2A612303 /* Pods-Social Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Network.debug.xcconfig"; path = "Target Support Files/Pods-Social Network/Pods-Social Network.debug.xcconfig"; sourceTree = "<group>"; };
 		A0DE53972BB11C4E5A6E2614 /* Pods-Social Network-Social NetworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Network-Social NetworkUITests.release.xcconfig"; path = "Target Support Files/Pods-Social Network-Social NetworkUITests/Pods-Social Network-Social NetworkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FA34FB7626ECABF800772517 /* NewsMainClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsMainClass.swift; sourceTree = "<group>"; };
 		FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStruct.swift; sourceTree = "<group>"; };
 		FA48FD5D2693538B007B1D37 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
@@ -264,9 +266,9 @@
 		FA94C4B626D3E74F00F6B44A /* News */ = {
 			isa = PBXGroup;
 			children = (
+				FA895EF426C05D91009954E7 /* NewsCodable */,
 				FA94C4AD26D26E1E00F6B44A /* APIService */,
 				FAB8342526CD05FC0022A8B3 /* NewsSecond */,
-				FA895EF426C05D91009954E7 /* NewsCodable */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB8342626CD08450022A8B3 /* NewsSecond.swift */,
+				FA34FB7626ECABF800772517 /* NewsMainClass.swift */,
 			);
 			path = NewsSecond;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				FAB2B93526A99DCB00565E45 /* FriendsTableViewCell.swift in Sources */,
 				FAB8340A26C468590022A8B3 /* ExtantionUI.swift in Sources */,
 				FA90D29326DBBDDA005FE904 /* PhotoCodable.swift in Sources */,
+				FA34FB7726ECABF800772517 /* NewsMainClass.swift in Sources */,
 				FA90D20226D92333005FE904 /* FriendsAPIOperation.swift in Sources */,
 				FAF20A5A2683D01700209A3E /* APIViewController.swift in Sources */,
 				FAD63A9226B8315A001302FD /* GroupsTableViewCell.swift in Sources */,

@@ -131,22 +131,37 @@ struct Photo: Codable {
         case postID = "post_id"
         case size = "sizes"
     }
+    var typePhoto: Size? {
+        guard let sizes = self.size else { return nil }
+        if let photo = size?.first(where: {$0.type == "x"}) { return photo }
+        if let photo = size?.first(where: {$0.type == "z"}) { return photo }
+        if let photo = size?.first(where: {$0.type == "y"}) { return photo }
+        if let photo = size?.first(where: {$0.type == "m"}) { return photo }
+        if let photo = size?.first(where: {$0.type == "s"}) { return photo }
+        
+        return sizes.first
+    }
+    
+   
 }
 
 // MARK: - Size
 struct Size: Codable {
-    let width, height: Int?
+        
+    let width, height: Int
     let url: String?
     let type: String?
     let withPadding: Int?
 
     enum CodingKeys: String, CodingKey {
         case width, height
-        case type
+        case type = "type"
         case url = "url"
         case withPadding = "with_padding"
     }
+ 
   
+
 }
 
 // MARK: - Video
