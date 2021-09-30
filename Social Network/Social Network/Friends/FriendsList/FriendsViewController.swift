@@ -85,11 +85,13 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.labelFriends.text = "\(friendsSearch.firstName) \(friendsSearch.lastName ?? "")"
         cell.imageFriend.sd_setImage(with: URL(string: friendsSearch.photo100), placeholderImage: UIImage())
         
+        
+        //MARK: Применение flyweight для дз 
         if friendsSearch.online == 0 {
-            cell.onlineButton.tintColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+            cell.onlineButton.tintColor = UIColor.redColor
             cell.onlineLabel.text = "Offline"
         } else {
-            cell.onlineButton.tintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.7039777729)
+            cell.onlineButton.tintColor = UIColor.greenColor
             cell.onlineLabel.text = "Online"
         }
         return cell

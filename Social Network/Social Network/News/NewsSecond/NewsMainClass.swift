@@ -167,8 +167,7 @@ extension MainNewsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = mainTableView.dequeueReusableCell(withIdentifier: "ThirdCell", for: indexPath) as! ThirdCell
         let currentItemText = feedItems[indexPath.section]
         
-        cell.configure(text: currentItemText.text)
-//        cell.mainTextNews.text = currentItemText.text
+        cell.mainTextNews.text = currentItemText.text
         return cell
     }
     

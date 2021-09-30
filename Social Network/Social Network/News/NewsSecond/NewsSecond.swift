@@ -64,24 +64,7 @@ class SecondCell: UITableViewCell {
 class ThirdCell: UITableViewCell {
     @IBOutlet weak var mainTextNews: TTTAttributedLabel!
     
-    let kCharacterBeforReadMore =  20
-    let kReadMoreText           =  "Читать далее.."
-    let kReadLessText           =  "Свернуть"
-    
-    
-    func readMore(readMore: Bool) {
-        mainTextNews.showTextOnTTTAttributeLable(str: mainTextNews.text as! String, readMoreText: kReadMoreText, readLessText: kReadLessText, font: nil, charatersBeforeReadMore: kCharacterBeforReadMore, activeLinkColor: UIColor.blue, isReadMoreTapped: readMore, isReadLessTapped: false)
-          }
-          func readLess(readLess: Bool) {
-            mainTextNews.showTextOnTTTAttributeLable(str: mainTextNews.text as! String, readMoreText: kReadMoreText, readLessText: kReadLessText, font: nil, charatersBeforeReadMore: kCharacterBeforReadMore, activeLinkColor: UIColor.blue, isReadMoreTapped: readLess, isReadLessTapped: true)
-          }
 
-    func configure(text: String?) {
-        mainTextNews.text = text
-        mainTextNews.showTextOnTTTAttributeLable(str: text!, readMoreText: kReadMoreText, readLessText: kReadLessText, font: UIFont.init(name: "Helvetica-Bold", size: 24.0)!, charatersBeforeReadMore: kCharacterBeforReadMore, activeLinkColor: UIColor.blue, isReadMoreTapped: false, isReadLessTapped: false)
-        mainTextNews.delegate = self
-    }
-    
 }
     
 class FourCell: UITableViewCell {

@@ -14,6 +14,8 @@
 		FA36E549268E19C0009EFBF2 /* PhotoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */; };
 		FA48FD5E2693538B007B1D37 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48FD5D2693538B007B1D37 /* BaseModel.swift */; };
 		FA50C532268DDE3000B3CC59 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */; };
+		FA52D2FD2704FEBD0013BF2C /* Adapter + Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA52D2FC2704FEBD0013BF2C /* Adapter + Realm.swift */; };
+		FA52D3052705EA1A0013BF2C /* FriendModelForRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA52D3042705EA1A0013BF2C /* FriendModelForRealm.swift */; };
 		FA565BFF2684A6ED000B4F96 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565BFE2684A6ED000B4F96 /* APIService.swift */; };
 		FA565C052684B22D000B4F96 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565C042684B22D000B4F96 /* Extention.swift */; };
 		FA712AF3268DED61004A7295 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA712AF2268DED61004A7295 /* GroupsViewController.swift */; };
@@ -81,6 +83,8 @@
 		FA36E548268E19C0009EFBF2 /* PhotoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStruct.swift; sourceTree = "<group>"; };
 		FA48FD5D2693538B007B1D37 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		FA50C531268DDE3000B3CC59 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		FA52D2FC2704FEBD0013BF2C /* Adapter + Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adapter + Realm.swift"; sourceTree = "<group>"; };
+		FA52D3042705EA1A0013BF2C /* FriendModelForRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModelForRealm.swift; sourceTree = "<group>"; };
 		FA565BFE2684A6ED000B4F96 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FA565C042684B22D000B4F96 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		FA5DF6E6295CC9E3434F0270 /* Pods-Social NetworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social NetworkTests.release.xcconfig"; path = "Target Support Files/Pods-Social NetworkTests/Pods-Social NetworkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 		FA1D1359268DD8B800A4571B /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				FA52D2FB2704FCEE0013BF2C /* Adapter */,
 				FA90D1C626D3F7DA005FE904 /* APIService */,
 				FA90D28826DBBC6B005FE904 /* FriendsList */,
 				FA48FD4C269033A5007B1D37 /* Profile */,
@@ -205,6 +210,15 @@
 				FA90D29C26DC1DDE005FE904 /* PhotoFriendsCollectionViewCell.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		FA52D2FB2704FCEE0013BF2C /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				FA52D2FC2704FEBD0013BF2C /* Adapter + Realm.swift */,
+				FA52D3042705EA1A0013BF2C /* FriendModelForRealm.swift */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 		FA565C032684B1D7000B4F96 /* Model */ = {
@@ -622,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA07B7726A17E840038031E /* LoginViewController.swift in Sources */,
+				FA52D2FD2704FEBD0013BF2C /* Adapter + Realm.swift in Sources */,
 				FA90D1EB26D58879005FE904 /* GroupsCodable.swift in Sources */,
 				FA993D4426A1C3C3009872E0 /* RegistrationViewController.swift in Sources */,
 				FAB2B93526A99DCB00565E45 /* FriendsTableViewCell.swift in Sources */,
@@ -647,6 +662,7 @@
 				FA48FD5E2693538B007B1D37 /* BaseModel.swift in Sources */,
 				FA36E549268E19C0009EFBF2 /* PhotoStruct.swift in Sources */,
 				FA90D1C826D3F7F9005FE904 /* FriendsAPI.swift in Sources */,
+				FA52D3052705EA1A0013BF2C /* FriendModelForRealm.swift in Sources */,
 				FA90D1D026D4C1FB005FE904 /* FriendsCodable.swift in Sources */,
 				FA90D1F026D588C0005FE904 /* GroupsAPI.swift in Sources */,
 				FAF20A602683D01700209A3E /* Social_Network.xcdatamodeld in Sources */,
