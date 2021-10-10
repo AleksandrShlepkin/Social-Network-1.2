@@ -10,7 +10,7 @@ import UIKit
 
 class FriendsViewController: UIViewController, UISearchBarDelegate {
     
-    private var apiservice = FriendsAPI()
+    private var apiservice = ProxyFriendsAPI(friendsAPI: FriendsAPI())
     var friends: [ItemFriends] = []
     var photos: [ItemPhoto] = []
     private var apisevicePhoto = PhotoAPI()
@@ -41,7 +41,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         //MARK: Запрос API
         apiservice.getFriends { [weak self] user in
             guard let self = self else { return }
-            self.friends = user!.response.items
+            self.friends = user
             self.FriendsTableView.reloadData()
         }
         apisevicePhoto.getPhoto { [weak self ] photo in

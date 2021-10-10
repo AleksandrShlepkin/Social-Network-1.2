@@ -11,7 +11,6 @@ import SwiftyJSON
 
 
 class NewsAPI {
-    
     let baseURl = "https://api.vk.com/method"
     let token = Session.shared.token
     let userID = Session.shared.userID
@@ -98,26 +97,3 @@ class NewsAPI {
     }
 }
 
-//class PhotoNew {
-//    let id: Int
-//    let date: Date
-//    let width: Int
-//    let height: Int
-//    let url: URL
-//    // Добавим вычисляемый параметр aspectRatio
-//    var aspectRatio: CGFloat { return CGFloat(height)/CGFloat(width) }
-//
-//    init?(json: JSON) {
-//        guard let sizesArray = json["photo"]["sizes"].array,
-//              let xSize = sizesArray.first(where: { $0["type"].stringValue == "x" }),
-//              let url = URL(string: xSize["url"].stringValue) else { return nil }
-//        print(url)
-//
-//        self.width = xSize["width"].intValue
-//        self.height = xSize["height"].intValue
-//        self.url = url
-//        let timeInterval = json["date"].doubleValue
-//        self.date = Date(timeIntervalSince1970: timeInterval)
-//        self.id = json["id"].intValue
-//    }
-//}

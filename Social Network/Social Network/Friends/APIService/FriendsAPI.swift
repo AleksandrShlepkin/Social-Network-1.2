@@ -9,15 +9,19 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+protocol GetFriends{
+    func getFriends(completion: @escaping ([ItemFriends]) -> ())
+}
 
-class FriendsAPI {
+
+class FriendsAPI: GetFriends {
     let baseURL = "https://api.vk.com/method"
     let token = Session.shared.token
     let userID = Session.shared.userID
     let version = "5.138"
     
     
-    func getFriends(completion: @escaping (FriendsCodable?) -> ()) {
+    func getFriends(completion: @escaping ([ItemFriends]) -> ()) {
         
         let method = "/friends.get"
         let parametrs: Parameters = [
@@ -32,30 +36,63 @@ class FriendsAPI {
         
         AF.request(url, method: .get, parameters: parametrs).responseData { response in
             guard let data = response.data else { return }
-            print(data.prettyJSON as Any)
-            let decoder = JSONDecoder()
-            let json = JSON(data)
-            let dispatch = DispatchGroup()
-            
-            let JSONItemsArray = json["response"]["items"].arrayValue
-            
-            var itemsArray:[ItemFriends] = []
-            
-            DispatchQueue.global().async(group: dispatch) { for (index, items) in JSONItemsArray.enumerated() {
-                do{
-                    let decodItem = try decoder.decode(ItemFriends.self, from: items.rawData())
-                    itemsArray.append(decodItem)
-                    print(itemsArray)
-                } catch {
-                    print("\(index) \(error)")
-                }
+            do {
+            let friendResponder = try JSONDecoder().decode(FriendsCodable.self, from: data)
+            let friends = friendResponder.response.items
+
+            DispatchQueue.main.async {
+                completion(friends)
+                print("Proxy has not finished working")
             }
-            }
-            dispatch.notify(queue: DispatchQueue.main) {
-                let response = ResponseFriends(count: 72, items: itemsArray)
-                let feed = FriendsCodable(response: response)
-                completion(feed)
-            }
+            } catch {
+                print(error)
+        }
+
+
         }
     }
 }
+
+class ProxyFriendsAPI: GetFriends {
+    
+    
+    
+    var friendsAPI: FriendsAPI
+    
+    init(friendsAPI: FriendsAPI){
+        self.friendsAPI = friendsAPI
+    }
+
+    
+    func getFriends(completion: @escaping ([ItemFriends]) -> ()) {
+        let method = "/friends.get"
+        let baseURL = friendsAPI.baseURL
+        let url = baseURL + method
+        
+        let parametrs: Parameters = [
+            "user_id": Session.shared.userID,
+            "fields": ["photo_100", "online", "bdate"],
+            "count": 72,
+            "access_token": Session.shared.token,
+            "v": "5.138"
+        ]
+
+        AF.request(url, method: .get, parameters: parametrs).responseData {  response in
+            
+            
+            guard let data = response.data else { return}
+            do {
+            let friendResponder = try JSONDecoder().decode(FriendsCodable.self, from: data)
+            let friends = friendResponder.response.items
+            DispatchQueue.main.async {
+                completion(friends)
+                print("Proxy has finished working")
+            }
+            } catch {
+                print(error)
+        }
+        }
+    }
+        
+}
+
